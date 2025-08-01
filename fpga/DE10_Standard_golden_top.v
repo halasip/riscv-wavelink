@@ -211,16 +211,17 @@ module DE10_Standard_golden_top(
 //  REG/WIRE declarations
 //=======================================================
 
-
+reg [27:0] cntr;
 
 
 //=======================================================
 //  Structural coding
 //=======================================================
 
+always @ (posedge CLOCK_50) begin
+  cntr = cntr + 1;
+end
 
-assign LEDR = SW;
-
-
+assign LEDR[9:0] = cntr[27:18] & SW[9:0];
 
 endmodule
