@@ -3,6 +3,7 @@ module soc_system (
 	button_pio_external_connection_export,
 	clk_clk,
 	dipsw_pio_external_connection_export,
+	hex0_pio_external_connection_export,
 	hps_0_f2h_cold_reset_req_reset_n,
 	hps_0_f2h_debug_reset_req_reset_n,
 	hps_0_f2h_stm_hw_events_stm_hwevents,
@@ -92,6 +93,7 @@ module soc_system (
 	input	[3:0]	button_pio_external_connection_export;
 	input		clk_clk;
 	input	[9:0]	dipsw_pio_external_connection_export;
+	output	[6:0]	hex0_pio_external_connection_export;
 	input		hps_0_f2h_cold_reset_req_reset_n;
 	input		hps_0_f2h_debug_reset_req_reset_n;
 	input	[27:0]	hps_0_f2h_stm_hw_events_stm_hwevents;

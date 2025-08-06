@@ -7,6 +7,7 @@ module soc_system (
 		input  wire [3:0]  button_pio_external_connection_export, // button_pio_external_connection.export
 		input  wire        clk_clk,                               //                            clk.clk
 		input  wire [9:0]  dipsw_pio_external_connection_export,  //  dipsw_pio_external_connection.export
+		output wire [6:0]  hex0_pio_external_connection_export,   //   hex0_pio_external_connection.export
 		input  wire        hps_0_f2h_cold_reset_req_reset_n,      //       hps_0_f2h_cold_reset_req.reset_n
 		input  wire        hps_0_f2h_debug_reset_req_reset_n,     //      hps_0_f2h_debug_reset_req.reset_n
 		input  wire [27:0] hps_0_f2h_stm_hw_events_stm_hwevents,  //        hps_0_f2h_stm_hw_events.stm_hwevents
@@ -187,6 +188,11 @@ module soc_system (
 	wire    [1:0] mm_interconnect_1_led_pio_s1_address;                      // mm_interconnect_1:led_pio_s1_address -> led_pio:address
 	wire          mm_interconnect_1_led_pio_s1_write;                        // mm_interconnect_1:led_pio_s1_write -> led_pio:write_n
 	wire   [31:0] mm_interconnect_1_led_pio_s1_writedata;                    // mm_interconnect_1:led_pio_s1_writedata -> led_pio:writedata
+	wire          mm_interconnect_1_hex_0_pio_s1_chipselect;                 // mm_interconnect_1:hex_0_pio_s1_chipselect -> hex_0_pio:chipselect
+	wire   [31:0] mm_interconnect_1_hex_0_pio_s1_readdata;                   // hex_0_pio:readdata -> mm_interconnect_1:hex_0_pio_s1_readdata
+	wire    [1:0] mm_interconnect_1_hex_0_pio_s1_address;                    // mm_interconnect_1:hex_0_pio_s1_address -> hex_0_pio:address
+	wire          mm_interconnect_1_hex_0_pio_s1_write;                      // mm_interconnect_1:hex_0_pio_s1_write -> hex_0_pio:write_n
+	wire   [31:0] mm_interconnect_1_hex_0_pio_s1_writedata;                  // mm_interconnect_1:hex_0_pio_s1_writedata -> hex_0_pio:writedata
 	wire   [31:0] hps_only_master_master_readdata;                           // mm_interconnect_2:hps_only_master_master_readdata -> hps_only_master:master_readdata
 	wire          hps_only_master_master_waitrequest;                        // mm_interconnect_2:hps_only_master_master_waitrequest -> hps_only_master:master_waitrequest
 	wire   [31:0] hps_only_master_master_address;                            // hps_only_master:master_address -> mm_interconnect_2:hps_only_master_master_address
@@ -256,7 +262,7 @@ module soc_system (
 	wire          irq_mapper_receiver1_irq;                                  // button_pio:irq -> [irq_mapper:receiver1_irq, irq_mapper_001:receiver1_irq]
 	wire          irq_mapper_receiver2_irq;                                  // dipsw_pio:irq -> [irq_mapper:receiver2_irq, irq_mapper_001:receiver2_irq]
 	wire          irq_mapper_receiver0_irq;                                  // jtag_uart:av_irq -> [irq_mapper:receiver0_irq, irq_mapper_001:receiver0_irq]
-	wire          rst_controller_reset_out_reset;                            // rst_controller:reset_out -> [ILC:reset_n, button_pio:reset_n, dipsw_pio:reset_n, irq_mapper:reset, jtag_uart:rst_n, led_pio:reset_n, mm_bridge_0:reset, mm_interconnect_0:mm_bridge_0_reset_reset_bridge_in_reset_reset, mm_interconnect_1:fpga_only_master_clk_reset_reset_bridge_in_reset_reset, mm_interconnect_1:mm_bridge_0_reset_reset_bridge_in_reset_reset, mm_interconnect_2:hps_only_master_clk_reset_reset_bridge_in_reset_reset, mm_interconnect_2:hps_only_master_master_translator_reset_reset_bridge_in_reset_reset, mm_interconnect_3:f2sdram_only_master_clk_reset_reset_bridge_in_reset_reset, mm_interconnect_3:f2sdram_only_master_master_translator_reset_reset_bridge_in_reset_reset, sysid_qsys:reset_n]
+	wire          rst_controller_reset_out_reset;                            // rst_controller:reset_out -> [ILC:reset_n, button_pio:reset_n, dipsw_pio:reset_n, hex_0_pio:reset_n, irq_mapper:reset, jtag_uart:rst_n, led_pio:reset_n, mm_bridge_0:reset, mm_interconnect_0:mm_bridge_0_reset_reset_bridge_in_reset_reset, mm_interconnect_1:fpga_only_master_clk_reset_reset_bridge_in_reset_reset, mm_interconnect_1:mm_bridge_0_reset_reset_bridge_in_reset_reset, mm_interconnect_2:hps_only_master_clk_reset_reset_bridge_in_reset_reset, mm_interconnect_2:hps_only_master_master_translator_reset_reset_bridge_in_reset_reset, mm_interconnect_3:f2sdram_only_master_clk_reset_reset_bridge_in_reset_reset, mm_interconnect_3:f2sdram_only_master_master_translator_reset_reset_bridge_in_reset_reset, sysid_qsys:reset_n]
 	wire          rst_controller_001_reset_out_reset;                        // rst_controller_001:reset_out -> [mm_interconnect_0:hps_0_h2f_lw_axi_master_agent_clk_reset_reset_bridge_in_reset_reset, mm_interconnect_2:hps_0_f2h_axi_slave_agent_reset_sink_reset_bridge_in_reset_reset, mm_interconnect_3:hps_0_f2h_sdram0_data_translator_reset_reset_bridge_in_reset_reset]
 
 	interrupt_latency_counter #(
@@ -332,6 +338,17 @@ module soc_system (
 		.master_readdatavalid (fpga_only_master_master_readdatavalid), //             .readdatavalid
 		.master_byteenable    (fpga_only_master_master_byteenable),    //             .byteenable
 		.master_reset_reset   ()                                       // master_reset.reset
+	);
+
+	soc_system_hex_0_pio hex_0_pio (
+		.clk        (clk_clk),                                   //                 clk.clk
+		.reset_n    (~rst_controller_reset_out_reset),           //               reset.reset_n
+		.address    (mm_interconnect_1_hex_0_pio_s1_address),    //                  s1.address
+		.write_n    (~mm_interconnect_1_hex_0_pio_s1_write),     //                    .write_n
+		.writedata  (mm_interconnect_1_hex_0_pio_s1_writedata),  //                    .writedata
+		.chipselect (mm_interconnect_1_hex_0_pio_s1_chipselect), //                    .chipselect
+		.readdata   (mm_interconnect_1_hex_0_pio_s1_readdata),   //                    .readdata
+		.out_port   (hex0_pio_external_connection_export)        // external_connection.export
 	);
 
 	soc_system_hps_0 #(
@@ -731,6 +748,11 @@ module soc_system (
 		.dipsw_pio_s1_readdata                                  (mm_interconnect_1_dipsw_pio_s1_readdata),                   //                                                 .readdata
 		.dipsw_pio_s1_writedata                                 (mm_interconnect_1_dipsw_pio_s1_writedata),                  //                                                 .writedata
 		.dipsw_pio_s1_chipselect                                (mm_interconnect_1_dipsw_pio_s1_chipselect),                 //                                                 .chipselect
+		.hex_0_pio_s1_address                                   (mm_interconnect_1_hex_0_pio_s1_address),                    //                                     hex_0_pio_s1.address
+		.hex_0_pio_s1_write                                     (mm_interconnect_1_hex_0_pio_s1_write),                      //                                                 .write
+		.hex_0_pio_s1_readdata                                  (mm_interconnect_1_hex_0_pio_s1_readdata),                   //                                                 .readdata
+		.hex_0_pio_s1_writedata                                 (mm_interconnect_1_hex_0_pio_s1_writedata),                  //                                                 .writedata
+		.hex_0_pio_s1_chipselect                                (mm_interconnect_1_hex_0_pio_s1_chipselect),                 //                                                 .chipselect
 		.ILC_avalon_slave_address                               (mm_interconnect_1_ilc_avalon_slave_address),                //                                 ILC_avalon_slave.address
 		.ILC_avalon_slave_write                                 (mm_interconnect_1_ilc_avalon_slave_write),                  //                                                 .write
 		.ILC_avalon_slave_read                                  (mm_interconnect_1_ilc_avalon_slave_read),                   //                                                 .read

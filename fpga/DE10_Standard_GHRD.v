@@ -331,7 +331,7 @@ soc_system u0 (
 		  .hps_0_f2h_debug_reset_req_reset_n     (~hps_debug_reset ),     //      hps_0_f2h_debug_reset_req.reset_n
 		  .hps_0_f2h_stm_hw_events_stm_hwevents  (stm_hw_events ),  //        hps_0_f2h_stm_hw_events.stm_hwevents
 		  .hps_0_f2h_warm_reset_req_reset_n      (~hps_warm_reset ),      //       hps_0_f2h_warm_reset_req.reset_n
-  
+        .hex0_pio_external_connection_export   ( HEX0 )
     );
 
 	 
@@ -403,7 +403,7 @@ else
 end
 
 assign LEDR[0]=led_level;
-assign {HEX3,HEX2,HEX1,HEX0} = counter;
+assign {HEX3,HEX2,HEX1} = counter;
 
 endmodule
 
