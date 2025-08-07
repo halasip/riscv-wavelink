@@ -66,7 +66,7 @@ void flip_content_vert(LCD_CANVAS *canvas) {
     uint8_t flipped_byte;
     
     printf("width: %d, height: %d, framesize: %d\n",width,height,framesize);
-    printf("i upper bound: %d \n", (framesize/width)/2));
+    printf("i upper bound: %d \n", (framesize/width)/2);
     return;
     
     /*
@@ -79,7 +79,7 @@ void flip_content_vert(LCD_CANVAS *canvas) {
     */
     
     
-    for (i = 0; i < (framesize/width)/2); i++) {
+    for (i = 0; i < (framesize/width)/2; i++) {
         for (j = 0; j < width; j++) { //iterate bytes
         /*
             pFrame_new[i] = pFrame_old[i];
