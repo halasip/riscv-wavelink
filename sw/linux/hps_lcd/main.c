@@ -102,9 +102,9 @@ int main() {
     DRAW_Rect(&LcdCanvas, 30,30, LcdCanvas.Width-30, LcdCanvas.Height-30, LCD_BLACK); // retangle
     
     // demo font
-    DRAW_PrintString(&LcdCanvas, 40, 5, "Hello", LCD_BLACK, &font_16x16);
-    DRAW_PrintString(&LcdCanvas, 40, 5+16, "SoCFPGA", LCD_BLACK, &font_16x16);
-	 DRAW_PrintString(&LcdCanvas, 40, 5+32, "Terasic ", LCD_BLACK, &font_16x16);
+    DRAW_PrintString(&LcdCanvas, 40, 5, "Torrent", LCD_BLACK, &font_16x16);
+    DRAW_PrintString(&LcdCanvas, 40, 5+16, "Server", LCD_BLACK, &font_16x16);
+	 DRAW_PrintString(&LcdCanvas, 40, 5+32, "@iNDIE ", LCD_BLACK, &font_16x16);
     DRAW_Refresh(&LcdCanvas);
     
     
