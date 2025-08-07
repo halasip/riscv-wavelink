@@ -163,7 +163,7 @@ int main() {
     // demo font
     DRAW_PrintString(&LcdCanvas, 40, 5, "ALMA", LCD_BLACK, &font_16x16);
     DRAW_PrintString(&LcdCanvas, 40, 5+16, "BLMA", LCD_BLACK, &font_16x16);
-	DRAW_PrintString(&LcdCanvas, 0,  0, "CLMA", LCD_BLACK, &font_16x16);
+	DRAW_PrintString(&LcdCanvas, 40, 5+32, "CLMA", LCD_BLACK, &font_16x16);
      
      // Vertica line from (0,0)
      DRAW_Pixel(&LcdCanvas, 0, 0, LCD_BLACK);
