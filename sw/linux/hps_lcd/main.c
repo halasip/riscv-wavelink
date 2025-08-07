@@ -105,20 +105,20 @@ int main() {
     DRAW_Clear(&LcdCanvas, LCD_WHITE);
 
 		// demo grphic api    
-    DRAW_Rect(&LcdCanvas, 0,0, LcdCanvas.Width-1, LcdCanvas.Height-1, LCD_BLACK); // retangle
-    DRAW_Circle(&LcdCanvas, 10, 10, 6, LCD_BLACK);
-    DRAW_Circle(&LcdCanvas, LcdCanvas.Width-10, 10, 6, LCD_BLACK);
-    DRAW_Circle(&LcdCanvas, LcdCanvas.Width-10, LcdCanvas.Height-10, 6, LCD_BLACK);
-    DRAW_Circle(&LcdCanvas, 10, LcdCanvas.Height-10, 6, LCD_BLACK);
+    //DRAW_Rect(&LcdCanvas, 0,0, LcdCanvas.Width-1, LcdCanvas.Height-1, LCD_BLACK); // retangle
+    //DRAW_Circle(&LcdCanvas, 10, 10, 6, LCD_BLACK);
+    //DRAW_Circle(&LcdCanvas, LcdCanvas.Width-10, 10, 6, LCD_BLACK);
+    //DRAW_Circle(&LcdCanvas, LcdCanvas.Width-10, LcdCanvas.Height-10, 6, LCD_BLACK);
+    //DRAW_Circle(&LcdCanvas, 10, LcdCanvas.Height-10, 6, LCD_BLACK);
     //experiment
-    DRAW_Rect(&LcdCanvas, 10,10, LcdCanvas.Width-10, LcdCanvas.Height-10, LCD_BLACK); // retangle
-    DRAW_Rect(&LcdCanvas, 20,20, LcdCanvas.Width-20, LcdCanvas.Height-20, LCD_BLACK); // retangle
-    DRAW_Rect(&LcdCanvas, 30,30, LcdCanvas.Width-30, LcdCanvas.Height-30, LCD_BLACK); // retangle
+    //DRAW_Rect(&LcdCanvas, 10,10, LcdCanvas.Width-10, LcdCanvas.Height-10, LCD_BLACK); // retangle
+    //DRAW_Rect(&LcdCanvas, 20,20, LcdCanvas.Width-20, LcdCanvas.Height-20, LCD_BLACK); // retangle
+    //DRAW_Rect(&LcdCanvas, 30,30, LcdCanvas.Width-30, LcdCanvas.Height-30, LCD_BLACK); // retangle
     
     // demo font
-    DRAW_PrintString(&LcdCanvas, 40, 5, "Torrent", LCD_BLACK, &font_16x16);
-    DRAW_PrintString(&LcdCanvas, 40, 5+16, "Server", LCD_BLACK, &font_16x16);
-	 DRAW_PrintString(&LcdCanvas, 40, 5+32, "@iNDIE ", LCD_BLACK, &font_16x16);
+    //DRAW_PrintString(&LcdCanvas, 40, 5, "Torrent", LCD_BLACK, &font_16x16);
+    //DRAW_PrintString(&LcdCanvas, 40, 5+16, "Server", LCD_BLACK, &font_16x16);
+	  DRAW_PrintString(&LcdCanvas, 40, 5+32, "@iNDIE ", LCD_BLACK, &font_16x16);
      
     flip_content_vert(&LcdCanvas); // experiment
     DRAW_Refresh(&LcdCanvas);
