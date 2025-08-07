@@ -57,8 +57,18 @@ void flip_content_vert(LCD_CANVAS *canvas) {
     uint8_t *pFrame_old = canvas->pFrame;
     //uint8_t *pFrame_new = (void *)malloc(canvas->FrameSize);
     uint8_t *pFrame_new = (uint8_t *)malloc(canvas->FrameSize);
-    int i, j;
+    int i, j, row_pair_index;
     uint8_t flipped_byte;
+    int old_byte_pos;
+    int new_bype_pos;
+    
+    uint8_t width = canvas->Width;
+    uint8_t height = canvas->Height;
+    uint8_t framesize = canvas->FrameSize;
+    uint8_t bytes_per_row = framesize / (height/8);
+    uint8_t flipped_byte;
+    
+    
     
     /*
     for (i = 0; i < canvas->FrameSize; i = i+1 ) {
@@ -70,11 +80,17 @@ void flip_content_vert(LCD_CANVAS *canvas) {
     */
     
     
-    for (i = 0; i < (canvas->FrameSize)/((canvas->Height)/8); i++) { // Iterate rows TODO halve
-        for (j = 0; j < (canvas->Width); j++) { //iterate bytes
+    for (i = 0; i < framesize/(height/8/2); i++) {
+        for (j = 0; j < w; j++) { //iterate bytes
+        /*
             pFrame_new[i] = pFrame_old[i];
             flipped_byte = flip_binary(pFrame_new[i]);
             printf("byte: 0x%02x, flipped: 0x%02x\n", pFrame_new[i], flipped_byte);
+        */
+        old_byte_pos =  i * bytes_per_row + j;
+        new_bype_pos = framesize - bytes_per_row*i + j
+        flipped_byte = flip_binary(pFrame_old[old_byte_pos]);
+        pFrame_new[new_bype_pos] = flipped_byte;
         }
     }
     
