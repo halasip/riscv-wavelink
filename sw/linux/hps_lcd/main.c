@@ -45,19 +45,22 @@ void flip_content_vert(LCD_CANVAS *canvas) {
     uint8_t *pFrame_new = (uint8_t *)malloc(canvas->FrameSize);
     int i, j;
     
-    /*
+    
     for (i = 0; i < canvas->FrameSize; i = i+1 ) {
         //pFrame_new[(canvas->FrameSize)-i-1] = (pFrame_old)[i];
         pFrame_new[i] = pFrame_old[i];
+        printf("byte: 0x%08x\n", pFrame_new[i]);
     }
-    */
     
+    
+    /*
     for (i = 0; i < (canvas->FrameSize)/(canvas->Width); i++) { // Iterate rows
         for (j = 0; j < (canvas->Height)/8; j++) { //iterate bytes
             //pFrame_new[ (canvas->FrameSize)-((canvas->Height)*i) - j] = pFrame_old[(canvas->Height)*i + j];
             pFrame_new[(canvas->Width)*i + j] = pFrame_old[(canvas->Width)*i + j];
         }
     }
+    */
     
     canvas->pFrame = pFrame_new;  
     free(pFrame_old); /* Free old frame, replaced by new one */
@@ -126,7 +129,7 @@ int main() {
     // demo font
     //DRAW_PrintString(&LcdCanvas, 40, 5, "Torrent", LCD_BLACK, &font_16x16);
     //DRAW_PrintString(&LcdCanvas, 40, 5+16, "Server", LCD_BLACK, &font_16x16);
-	  DRAW_PrintString(&LcdCanvas, 40, 5+32, "@iNDIE ", LCD_BLACK, &font_16x16);
+	  DRAW_PrintString(&LcdCanvas, 0,  0, "A", LCD_BLACK, &font_16x16);
      
     flip_content_vert(&LcdCanvas); // experiment
     DRAW_Refresh(&LcdCanvas);
