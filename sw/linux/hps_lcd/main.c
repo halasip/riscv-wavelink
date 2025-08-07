@@ -39,17 +39,33 @@
 #define HW_REGS_SPAN ( 0x04000000 )
 #define HW_REGS_MASK ( HW_REGS_SPAN - 1 )
 
+uint8_t flip_binary(uint8_t in) {
+    uint8_t left1 = in << 1;
+    uint8_t left3 = in << 3;
+    uint8_t left5 = in << 5;
+    uint8_t left7 = in << 7;
+    uint8_t right1 = in >> 1;
+    uint8_t right3 = in >> 3;
+    uint8_t right5 = in >> 5;
+    uint8_t right7 = in >> 7;
+    uint8_t flipped =  (128 & left7) | (64 & left5) | (32 & left3) |  (16 & left3) |
+                       (  8 & right1)| ( 4 & right3)| ( 2 & right5)|  ( 1 & right7);
+    return flipped;
+}    
+
 void flip_content_vert(LCD_CANVAS *canvas) {
     uint8_t *pFrame_old = canvas->pFrame;
     //uint8_t *pFrame_new = (void *)malloc(canvas->FrameSize);
     uint8_t *pFrame_new = (uint8_t *)malloc(canvas->FrameSize);
     int i, j;
+    uint8_t flipped_byte;
     
     
     for (i = 0; i < canvas->FrameSize; i = i+1 ) {
         //pFrame_new[(canvas->FrameSize)-i-1] = (pFrame_old)[i];
         pFrame_new[i] = pFrame_old[i];
-        printf("byte: 0x%08x\n", pFrame_new[i]);
+        flipped_byte = flip_content_vert(pFrame_new[i]);
+        printf("byte: 0x%02x\n, flipped: 0x%02x\n", pFrame_new[i], flipped_byte);
     }
     
     
