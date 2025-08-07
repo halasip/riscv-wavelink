@@ -67,7 +67,6 @@ void flip_content_vert(LCD_CANVAS *canvas) {
     
     printf("width: %d, height: %d, framesize: %d\n",width,height,framesize);
     printf("i upper bound: %d \n", (framesize/width)/2);
-    return;
     
     /*
     for (i = 0; i < canvas->FrameSize; i = i+1 ) {
