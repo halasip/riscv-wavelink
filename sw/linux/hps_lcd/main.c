@@ -88,7 +88,8 @@ void flip_content_vert(LCD_CANVAS *canvas) {
         old_byte_pos =  i * bytes_per_row + j;
         new_bype_pos = framesize - bytes_per_row*i + j;
         flipped_byte = flip_binary(pFrame_old[old_byte_pos]);
-        pFrame_new[new_bype_pos] = flipped_byte;
+        //pFrame_new[new_bype_pos] = flipped_byte;
+        pFrame_new[old_byte_pos] = flipped_byte;
         }
     }
     
