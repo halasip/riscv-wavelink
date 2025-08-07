@@ -49,7 +49,7 @@ void flip_content_vert(LCD_CANVAS *canvas) {
         //pFrame_new = pFrame_new + i;
         //*(pFrame_new + ((canvas->FrameSize)-i)) =  *(canvas->pFrame)
         //*pFrame_new = *(canvas->pFrame);
-        pFrame_new[(canvas->FrameSize)-i] = canvas->pFrame[i];
+        pFrame_new[(canvas->FrameSize)-i] = (canvas->pFrame)[i];
     }
     canvas->pFrame = pFrame_new;  
     free(pFrame_old); /* Free old frame, replaced by new one */
