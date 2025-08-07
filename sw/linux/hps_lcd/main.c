@@ -43,13 +43,14 @@ void flip_content_vert(LCD_CANVAS *canvas) {
     uint8_t *pFrame_new;
     uint8_t *pFrame_old = canvas->pFrame;
     int i;
+    int j;
     
     pFrame_new = (void *)malloc(canvas->FrameSize);
     for (i = 0; i < canvas->FrameSize; i = i+1 ) {
         //pFrame_new = pFrame_new + i;
         //*(pFrame_new + ((canvas->FrameSize)-i)) =  *(canvas->pFrame)
         //*pFrame_new = *(canvas->pFrame);
-        pFrame_new[(canvas->FrameSize)-i] = (canvas->pFrame)[i];
+        pFrame_new[(canvas->FrameSize)-i-1] = (canvas->pFrame)[i];
     }
     canvas->pFrame = pFrame_new;  
     free(pFrame_old); /* Free old frame, replaced by new one */
