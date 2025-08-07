@@ -60,23 +60,23 @@ void flip_content_vert(LCD_CANVAS *canvas) {
     int i, j;
     uint8_t flipped_byte;
     
-    
+    /*
     for (i = 0; i < canvas->FrameSize; i = i+1 ) {
         //pFrame_new[(canvas->FrameSize)-i-1] = (pFrame_old)[i];
         pFrame_new[i] = pFrame_old[i];
         flipped_byte = flip_binary(pFrame_new[i]);
         printf("byte: 0x%02x\n, flipped: 0x%02x\n", pFrame_new[i], flipped_byte);
     }
+    */
     
     
-    /*
-    for (i = 0; i < (canvas->FrameSize)/(canvas->Width); i++) { // Iterate rows
-        for (j = 0; j < (canvas->Height)/8; j++) { //iterate bytes
-            //pFrame_new[ (canvas->FrameSize)-((canvas->Height)*i) - j] = pFrame_old[(canvas->Height)*i + j];
-            pFrame_new[(canvas->Width)*i + j] = pFrame_old[(canvas->Width)*i + j];
+    for (i = 0; i < (canvas->FrameSize)/((canvas->Height)/8); i++) { // Iterate rows TODO halve
+        for (j = 0; j < (canvas->Width); j++) { //iterate bytes
+            pFrame_new[i] = pFrame_old[i];
+            flipped_byte = flip_binary(pFrame_new[i]);
+            printf("byte: 0x%02x, flipped: 0x%02x\n", pFrame_new[i], flipped_byte);
         }
     }
-    */
     
     canvas->pFrame = pFrame_new;  
     free(pFrame_old); /* Free old frame, replaced by new one */
