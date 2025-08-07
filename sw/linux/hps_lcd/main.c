@@ -67,7 +67,7 @@ void flip_content_vert(LCD_CANVAS *canvas) {
     
     printf("width: %d, height: %d, framesize: %d\n",width,height,framesize);
     
-    
+    return;
     
     
     
@@ -94,7 +94,7 @@ void flip_content_vert(LCD_CANVAS *canvas) {
         //pFrame_new[new_byte_pos] = flipped_byte;
         pFrame_new[old_byte_pos] = flipped_byte;
         
-        printf("i: %d, j:% dold_byte_pos: %d,   new_byte_pos: %d \n", old_byte_pos, new_byte_pos);
+        printf("i:%d, j:%d dold_byte_pos:%d,   new_byte_pos:%d \n", old_byte_pos, new_byte_pos);
         }
     }
     
