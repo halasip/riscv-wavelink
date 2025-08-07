@@ -129,7 +129,27 @@ int main() {
     // demo font
     //DRAW_PrintString(&LcdCanvas, 40, 5, "Torrent", LCD_BLACK, &font_16x16);
     //DRAW_PrintString(&LcdCanvas, 40, 5+16, "Server", LCD_BLACK, &font_16x16);
-	  DRAW_PrintString(&LcdCanvas, 0,  0, "A", LCD_BLACK, &font_16x16);
+	 // DRAW_PrintString(&LcdCanvas, 0,  0, "A", LCD_BLACK, &font_16x16);
+     
+     // Vertica line from (0,0)
+     DRAW_Pixel(&LcdCanvas, 0, 0, LCD_BLACK);
+     DRAW_Pixel(&LcdCanvas, 0, 1, LCD_BLACK);
+     DRAW_Pixel(&LcdCanvas, 0, 2, LCD_BLACK);
+     DRAW_Pixel(&LcdCanvas, 0, 3, LCD_BLACK);
+     DRAW_Pixel(&LcdCanvas, 0, 4, LCD_BLACK);
+     DRAW_Pixel(&LcdCanvas, 0, 5, LCD_BLACK);
+     DRAW_Pixel(&LcdCanvas, 0, 6, LCD_BLACK);
+     DRAW_Pixel(&LcdCanvas, 0, 7, LCD_BLACK);
+     
+     //Horizonatl line at the end of first row
+     DRAW_Pixel(&LcdCanvas, 100, 0, LCD_BLACK);
+     DRAW_Pixel(&LcdCanvas, 101, 0, LCD_BLACK);
+     DRAW_Pixel(&LcdCanvas, 102, 0, LCD_BLACK);
+     DRAW_Pixel(&LcdCanvas, 103, 0, LCD_BLACK);
+     DRAW_Pixel(&LcdCanvas, 104, 0, LCD_BLACK);
+     DRAW_Pixel(&LcdCanvas, 105, 0, LCD_BLACK);
+     DRAW_Pixel(&LcdCanvas, 106, 0, LCD_BLACK);
+     DRAW_Pixel(&LcdCanvas, 107, 0, LCD_BLACK);
      
     flip_content_vert(&LcdCanvas); // experiment
     DRAW_Refresh(&LcdCanvas);
