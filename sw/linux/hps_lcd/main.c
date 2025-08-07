@@ -39,7 +39,19 @@
 #define HW_REGS_SPAN ( 0x04000000 )
 #define HW_REGS_MASK ( HW_REGS_SPAN - 1 )
 
-
+void flip_content_vert(LCD_CANVAS *canvas) {
+    uint8_t *pFrame_new;
+    uint8_t *pFrame_old = canvas->pFrame;
+    int i;
+    
+    pFrame_new = (void *)malloc(canvas->FrameSize);
+    for (i = 0; i < canvas->FrameSize; i = i+1) {
+        pFrame_new = pFrame_new + i;
+        *pFrame_new = *(canvas->pFrame);
+    }
+    canvas->pFrame = pFrame_new;  
+    free(pFrame_old);
+}    
 int main() {
 
 	void *virtual_base;
@@ -105,6 +117,8 @@ int main() {
     DRAW_PrintString(&LcdCanvas, 40, 5, "Torrent", LCD_BLACK, &font_16x16);
     DRAW_PrintString(&LcdCanvas, 40, 5+16, "Server", LCD_BLACK, &font_16x16);
 	 DRAW_PrintString(&LcdCanvas, 40, 5+32, "@iNDIE ", LCD_BLACK, &font_16x16);
+     
+    flip_content_vert(&LcdCanvas); // experiment
     DRAW_Refresh(&LcdCanvas);
     
     
