@@ -60,10 +60,10 @@ void flip_content_vert(LCD_CANVAS *canvas) {
     int i, j;
     int old_byte_pos, new_byte_pos;
     
-    uint8_t width = canvas->Width;
-    uint8_t height = canvas->Height;
-    uint8_t framesize = canvas->FrameSize;
-    uint8_t bytes_per_row = framesize / (height/8);
+    int width = canvas->Width;
+    int height = canvas->Height;
+    int framesize = canvas->FrameSize;
+    int bytes_per_row = framesize / (height/8);
     uint8_t flipped_byte;
     
     printf("width: %d, height: %d, framesize: %d",width,height,framesize);
