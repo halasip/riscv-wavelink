@@ -1,1 +1,0 @@
-Source: https://github.com/cjlano/freertos/tree/master/FreeRTOS/Demo/CORTEX_A9_Cyclone_V_SoC_DK/Altera_Code/HardwareLibrary
