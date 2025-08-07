@@ -66,10 +66,8 @@ void flip_content_vert(LCD_CANVAS *canvas) {
     uint8_t flipped_byte;
     
     printf("width: %d, height: %d, framesize: %d\n",width,height,framesize);
-    
+    printf("magic: %d ", framesize/(width/8/2));
     return;
-    
-    
     
     /*
     for (i = 0; i < canvas->FrameSize; i = i+1 ) {
