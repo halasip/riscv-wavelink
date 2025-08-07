@@ -42,7 +42,26 @@
 #include "font.h"
 
 //////////////////////////////////////////////
+// Helper functions
+
+// Flipping an 8 bit binary: 11010100 -> 00101011
+uint8_t flip_binary(uint8_t in) {
+    uint8_t left1 = in << 1;
+    uint8_t left3 = in << 3;
+    uint8_t left5 = in << 5;
+    uint8_t left7 = in << 7;
+    uint8_t right1 = in >> 1;
+    uint8_t right3 = in >> 3;
+    uint8_t right5 = in >> 5;
+    uint8_t right7 = in >> 7;
+    uint8_t flipped =  (128 & left7) | (64 & left5) | (32 & left3) |  (16 & left1) |
+                       (  8 & right1)| ( 4 & right3)| ( 2 & right5)|  ( 1 & right7);
+    return flipped;
+}
+
+//////////////////////////////////////////////
 // lowest level API
+
 void DRAW_Pixel(LCD_CANVAS *pCanvas, int X, int Y, int Color){
     int nLine;
     uint8_t *pFrame, Mask;
@@ -60,14 +79,37 @@ void DRAW_Pixel(LCD_CANVAS *pCanvas, int X, int Y, int Color){
 ////////////////////////////////////////////////
 // high-level API for developer
 
-
 // !!!! noe. this fucntion is LCD hardware depentdent
 void DRAW_Refresh(LCD_CANVAS *pCanvas){
 	LCD_FrameCopy(pCanvas->pFrame);
 }
 
-
-
+//Flip LCD content verticaly
+void DRAW_Flip_Vert(LCD_CANVAS *canvas) {
+    uint8_t *pFrame_old = canvas->pFrame;
+    uint8_t *pFrame_new = (uint8_t *) malloc(canvas->FrameSize);
+    int i, j;
+    int old_byte_pos, new_byte_pos;
+    int width = canvas->Width;
+    int height = canvas->Height;
+    int framesize = canvas->FrameSize;
+    uint8_t flipped_byte;
+    
+    //printf("width: %d, height: %d, framesize: %d\n",width,height,framesize);
+    //printf("i upper bound: %d \n", (framesize/width)/2);
+    
+    for (i = 0; i < (framesize/width); i++) { //iterate rows
+        for (j = 0; j < width; j++) { //iterate bytes
+        old_byte_pos =  (i * width) + j;
+        new_byte_pos = framesize - (width*(i+1) ) + (width-1-j);
+        flipped_byte = flip_binary(pFrame_old[old_byte_pos]);
+        pFrame_new[new_byte_pos] = flipped_byte; 
+        // printf("i:%d, j:%d, old_byte_pos:%d, new_byte_pos:%d \n", i, j, old_byte_pos, new_byte_pos);
+        }
+    }
+    canvas->pFrame = pFrame_new;  
+    free(pFrame_old); /* Free old frame, replaced by new one */
+}    
 
 void DRAW_Line(LCD_CANVAS *pCanvas, int X1, int Y1, int X2, int Y2, int Color){
     int X_Start, X_End;
