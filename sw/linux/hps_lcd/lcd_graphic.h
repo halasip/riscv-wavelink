@@ -19,6 +19,7 @@ typedef struct{
 #define LCD_WHITE   0x00
 #define LCD_BLACK   0xFF
 
+void DRAW_Flip_Vert(LCD_CANVAS *pCanvas);
 void DRAW_Clear(LCD_CANVAS *pCanvas, int Color);
 void DRAW_Line(LCD_CANVAS *pCanvas, int X1, int Y1, int X2, int Y2, int Color);
 void DRAW_Pixel(LCD_CANVAS *pCanvas, int X, int Y, int Color);

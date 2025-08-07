@@ -85,14 +85,13 @@ void DRAW_Refresh(LCD_CANVAS *pCanvas){
 }
 
 //Flip LCD content verticaly
-void DRAW_Flip_Vert(LCD_CANVAS *canvas) {
-    uint8_t *pFrame_old = canvas->pFrame;
-    uint8_t *pFrame_new = (uint8_t *) malloc(canvas->FrameSize);
+void DRAW_Flip_Vert(LCD_CANVAS *Pcanvas) {
+    uint8_t *pFrame_old = Pcanvas->pFrame;
+    uint8_t *pFrame_new = (uint8_t *) malloc(Pcanvas->FrameSize);
     int i, j;
     int old_byte_pos, new_byte_pos;
-    int width = canvas->Width;
-    int height = canvas->Height;
-    int framesize = canvas->FrameSize;
+    int width = Pcanvas->Width;
+    int framesize = Pcanvas->FrameSize;
     uint8_t flipped_byte;
     
     //printf("width: %d, height: %d, framesize: %d\n",width,height,framesize);
@@ -107,7 +106,7 @@ void DRAW_Flip_Vert(LCD_CANVAS *canvas) {
         // printf("i:%d, j:%d, old_byte_pos:%d, new_byte_pos:%d \n", i, j, old_byte_pos, new_byte_pos);
         }
     }
-    canvas->pFrame = pFrame_new;  
+    Pcanvas->pFrame = pFrame_new;  
     free(pFrame_old); /* Free old frame, replaced by new one */
 }    
 
