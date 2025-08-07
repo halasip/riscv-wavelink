@@ -63,11 +63,9 @@ void flip_content_vert(LCD_CANVAS *canvas) {
     int width = canvas->Width;
     int height = canvas->Height;
     int framesize = canvas->FrameSize;
-    int bytes_per_row = framesize / (height/8);
     uint8_t flipped_byte;
     
-    printf("width: %d, height: %d, framesize: %d",width,height,framesize);
-    printf("bytes_per_row: %d", bytes_per_row);
+    printf("width: %d, height: %d, framesize: %d\n",width,height,framesize);
     
     
     
@@ -90,15 +88,16 @@ void flip_content_vert(LCD_CANVAS *canvas) {
             flipped_byte = flip_binary(pFrame_new[i]);
             printf("byte: 0x%02x, flipped: 0x%02x\n", pFrame_new[i], flipped_byte);
         */
-        old_byte_pos =  (i * bytes_per_row) + j;
-        new_byte_pos = framesize - bytes_per_row*i + j;
+        old_byte_pos =  (i * width) + j;
+        new_byte_pos = framesize - width*i + j;
         flipped_byte = flip_binary(pFrame_old[old_byte_pos]);
         //pFrame_new[new_byte_pos] = flipped_byte;
         pFrame_new[old_byte_pos] = flipped_byte;
         
-        printf("old_byte_pos: %d,   new_byte_pos: %d", old_byte_pos, new_byte_pos);
+        printf("i: %d, j:% dold_byte_pos: %d,   new_byte_pos: %d \n", old_byte_pos, new_byte_pos);
         }
     }
+    
     
     canvas->pFrame = pFrame_new;  
     free(pFrame_old); /* Free old frame, replaced by new one */
