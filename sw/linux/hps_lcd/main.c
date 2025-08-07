@@ -78,7 +78,7 @@ void flip_content_vert(LCD_CANVAS *canvas) {
     */
     
     
-    for (i = 0; i < (framesize/width)/2; i++) {
+    for (i = 0; i < (framesize/width); i++) {
         for (j = 0; j < width; j++) { //iterate bytes
         /*
             pFrame_new[i] = pFrame_old[i];
