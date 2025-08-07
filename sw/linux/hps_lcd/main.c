@@ -57,10 +57,8 @@ void flip_content_vert(LCD_CANVAS *canvas) {
     uint8_t *pFrame_old = canvas->pFrame;
     //uint8_t *pFrame_new = (void *)malloc(canvas->FrameSize);
     uint8_t *pFrame_new = (uint8_t *)malloc(canvas->FrameSize);
-    int i, j, row_pair_index;
-    uint8_t flipped_byte;
-    int old_byte_pos;
-    int new_bype_pos;
+    int i, j;
+    int old_byte_pos, new_bype_pos;
     
     uint8_t width = canvas->Width;
     uint8_t height = canvas->Height;
@@ -81,7 +79,7 @@ void flip_content_vert(LCD_CANVAS *canvas) {
     
     
     for (i = 0; i < framesize/(height/8/2); i++) {
-        for (j = 0; j < w; j++) { //iterate bytes
+        for (j = 0; j < width; j++) { //iterate bytes
         /*
             pFrame_new[i] = pFrame_old[i];
             flipped_byte = flip_binary(pFrame_new[i]);
