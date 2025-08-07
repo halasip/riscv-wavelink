@@ -96,6 +96,10 @@ int main() {
     DRAW_Circle(&LcdCanvas, LcdCanvas.Width-10, 10, 6, LCD_BLACK);
     DRAW_Circle(&LcdCanvas, LcdCanvas.Width-10, LcdCanvas.Height-10, 6, LCD_BLACK);
     DRAW_Circle(&LcdCanvas, 10, LcdCanvas.Height-10, 6, LCD_BLACK);
+    //experiment
+    DRAW_Rect(&LcdCanvas, 10,10, LcdCanvas.Width-10, LcdCanvas.Height-10, LCD_BLACK); // retangle
+    DRAW_Rect(&LcdCanvas, 20,20, LcdCanvas.Width-20, LcdCanvas.Height-20, LCD_BLACK); // retangle
+    DRAW_Rect(&LcdCanvas, 30,30, LcdCanvas.Width-30, LcdCanvas.Height-30, LCD_BLACK); // retangle
     
     // demo font
     DRAW_PrintString(&LcdCanvas, 40, 5, "Hello", LCD_BLACK, &font_16x16);
