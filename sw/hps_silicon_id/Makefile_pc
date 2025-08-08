@@ -1,5 +1,5 @@
 #
-TARGET = hps_lcd
+TARGET = hps_silicon_id
 ALT_DEVICE_FAMILY ?= soc_cv_av
 SOCEDS_ROOT ?= $(SOCEDS_DEST_ROOT)
 #HWLIB For PC compilation
@@ -15,8 +15,7 @@ ARCH= arm
 build: $(TARGET)
 
 
-$(TARGET): main.o terasic_lib.o  \
-LCD_Lib.o LCD_Driver.o LCD_Hw.o lcd_graphic.o font.o
+$(TARGET): main.o
 	$(CC) $(LDFLAGS)   $^ -o $@   -lrt -lm
 %.o : %.c
 	$(CC) $(CFLAGS) -c $< -o $@

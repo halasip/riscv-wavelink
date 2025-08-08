@@ -1,10 +1,9 @@
 #
-TARGET = hps_lcd
+TARGET = hps_silicon_id
 ALT_DEVICE_FAMILY ?= soc_cv_av
 SOCEDS_ROOT ?= $(SOCEDS_DEST_ROOT)
-#HWLIB For PC compilation
-HWLIBS_ROOT = /mnt/c/Users/zoltan.k/personal/riscv-wavelink/sw/common/hwlib
-
+#HWLIB For local compilation on SOC
+HWLIBS_ROOT = /home/root/hwlib
 CROSS_COMPILE = arm-linux-gnueabihf-
 CFLAGS = -static -g -Wall   -D$(ALT_DEVICE_FAMILY) -I$(HWLIBS_ROOT)/include/   -I$(HWLIBS_ROOT)/include/
 LDFLAGS =  -g -Wall  
@@ -15,8 +14,7 @@ ARCH= arm
 build: $(TARGET)
 
 
-$(TARGET): main.o terasic_lib.o  \
-LCD_Lib.o LCD_Driver.o LCD_Hw.o lcd_graphic.o font.o
+$(TARGET): main.o
 	$(CC) $(LDFLAGS)   $^ -o $@   -lrt -lm
 %.o : %.c
 	$(CC) $(CFLAGS) -c $< -o $@
