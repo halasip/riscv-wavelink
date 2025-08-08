@@ -69,8 +69,10 @@ int main(int argc, char **argv) {
 
 
         while(1){
+            if (~alt_read_word((virtual_base+((uint32_t)( ALT_GPIO1_EXT_PORTA_ADDR )&(uint32_t)(HW_REGS_MASK))))&BUTTON_MASK) {
+                break;
+            }
                 scan_input = alt_read_word( ( virtual_base + ( ( uint32_t )( 0xff204000 ) & ( uint32_t )( HW_REGS_MASK ) ) ) );
-//scan_input++;
 		printf("dipswitch input %08X\r\n", scan_input );
                 usleep(100*1000);
 	//                if(~scan_input&BUTTON_MASK)

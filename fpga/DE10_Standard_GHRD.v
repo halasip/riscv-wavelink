@@ -221,6 +221,7 @@ module DE10_Standard_GHRD(
   wire        hps_debug_reset;
   wire [27:0] stm_hw_events;
   wire        fpga_clk_50;
+  wire [23:0] hex_pio;
 // connection of internal logics
   assign LEDR[9:1] = fpga_led_internal;
   assign stm_hw_events    = {{4{1'b0}}, SW, fpga_led_internal, fpga_debounced_buttons};
@@ -331,7 +332,7 @@ soc_system u0 (
 		  .hps_0_f2h_debug_reset_req_reset_n     (~hps_debug_reset ),     //      hps_0_f2h_debug_reset_req.reset_n
 		  .hps_0_f2h_stm_hw_events_stm_hwevents  (stm_hw_events ),  //        hps_0_f2h_stm_hw_events.stm_hwevents
 		  .hps_0_f2h_warm_reset_req_reset_n      (~hps_warm_reset ),      //       hps_0_f2h_warm_reset_req.reset_n
-        .hex_pio_external_connection_export   ( HEX0 )
+        .hex_pio_external_connection_export    ( hex_pio )
     );
 
 	 
@@ -383,6 +384,15 @@ altera_edge_detector pulse_debug_reset (
   defparam pulse_debug_reset.EDGE_TYPE = 1;
   defparam pulse_debug_reset.IGNORE_RST_WHILE_BUSY = 1;
   
+  
+  hex_to_7seg #(
+		.DIGITS(6)
+	)(
+		.hex_vec(hex_pio),
+		.seg_vec({HEX5,HEX4,HEX3,HEX2,HEX1,HEX0})
+	);
+  
+  
 reg [25:0] counter; 
 reg  led_level;
 always @(posedge fpga_clk_50 or negedge hps_fpga_reset_n)
@@ -403,7 +413,6 @@ else
 end
 
 assign LEDR[0]=led_level;
-assign {HEX3,HEX2,HEX1} = counter;
 
 endmodule
 

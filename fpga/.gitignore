@@ -36,13 +36,13 @@
 
 !*/*.cdf
 !*/*.qip
-
+!soc_system/soc_system.html # We want generated html files
 
 #.qsys_edit
 #soc_system.sopcinfo
 #soc_system
 #output_files/DE10_Standard_GHRD.sof
-#output_files
+output_files
 hps_isw_handoff
 software/preloader
 #soc_system.dts
