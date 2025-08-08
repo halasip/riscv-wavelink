@@ -28,6 +28,35 @@
 # Need to keep all HDL files
 # *.vhd
 # *.v
+.qsys_edit
+soc_system.sopcinfo
+soc_system
+output_files/DE10_Standard_GHRD.sof
+output_files
+hps_isw_handoff
+software/preloader
+soc_system.dts
+soc_system.dtb
+c5_pin_model_dump.txt
+db
+DE10_Standard_GHRD_assignment_defaults.qdf
+DE10_Standard_GHRD.ipregen.rpt
+DE10_Standard_GHRD.qws
+DE10_Standard_GHRD.v.bak
+DE10_Standard_golden_top.v.bak
+filelist.txt
+fpga.dtbo
+generate_hps_qsys_header.sh
+greybox_tmp
+hps_0.h
+hps_sdram_p0_all_pins.txt
+hps_sdram_p0_summary.csv
+incremental_db
+ip_upgrade_port_diff_reports
+serv_req_info.txt
+soc_system
+stamp
+start-proj.qws
 
 # ignore Quartus II generated files
 *_generation_script*
@@ -63,6 +92,7 @@
 */db/
 */incremental_db/
 */simulation/
+*/synthesis/
 */timing/
 */testbench/
 */*_sim/
