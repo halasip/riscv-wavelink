@@ -99,7 +99,7 @@
          type = "int";
       }
    }
-   element hex_0_pio
+   element hex_pio
    {
       datum _sortIndex
       {
@@ -107,7 +107,7 @@
          type = "int";
       }
    }
-   element hex_0_pio.s1
+   element hex_pio.s1
    {
       datum baseAddress
       {
@@ -243,8 +243,8 @@
    type="conduit"
    dir="end" />
  <interface
-   name="hex0_pio_external_connection"
-   internal="hex_0_pio.external_connection"
+   name="hex_pio_external_connection"
+   internal="hex_pio.external_connection"
    type="conduit"
    dir="end" />
  <interface
@@ -351,7 +351,7 @@
   <parameter name="PLI_PORT" value="50000" />
   <parameter name="USE_PLI" value="0" />
  </module>
- <module name="hex_0_pio" kind="altera_avalon_pio" version="24.1" enabled="1">
+ <module name="hex_pio" kind="altera_avalon_pio" version="24.1" enabled="1">
   <parameter name="bitClearingEdgeCapReg" value="false" />
   <parameter name="bitModifyingOutReg" value="false" />
   <parameter name="captureEdge" value="false" />
@@ -363,7 +363,7 @@
   <parameter name="resetValue" value="0" />
   <parameter name="simDoTestBenchWiring" value="false" />
   <parameter name="simDrivenValue" value="0" />
-  <parameter name="width" value="7" />
+  <parameter name="width" value="24" />
  </module>
  <module name="hps_0" kind="altera_hps" version="24.1" enabled="1">
   <parameter name="ABSTRACT_REAL_COMPARE_TEST" value="false" />
@@ -1027,11 +1027,7 @@
   <parameter name="baseAddress" value="0x3000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
- <connection
-   kind="avalon"
-   version="24.1"
-   start="mm_bridge_0.m0"
-   end="hex_0_pio.s1">
+ <connection kind="avalon" version="24.1" start="mm_bridge_0.m0" end="hex_pio.s1">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x6000" />
   <parameter name="defaultConnection" value="false" />
@@ -1103,7 +1099,7 @@
    kind="avalon"
    version="24.1"
    start="fpga_only_master.master"
-   end="hex_0_pio.s1">
+   end="hex_pio.s1">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x6000" />
   <parameter name="defaultConnection" value="false" />
@@ -1130,7 +1126,7 @@
    start="clk_0.clk"
    end="f2sdram_only_master.clk" />
  <connection kind="clock" version="24.1" start="clk_0.clk" end="mm_bridge_0.clk" />
- <connection kind="clock" version="24.1" start="clk_0.clk" end="hex_0_pio.clk" />
+ <connection kind="clock" version="24.1" start="clk_0.clk" end="hex_pio.clk" />
  <connection
    kind="clock"
    version="24.1"
@@ -1230,7 +1226,7 @@
    kind="reset"
    version="24.1"
    start="clk_0.clk_reset"
-   end="hex_0_pio.reset" />
+   end="hex_pio.reset" />
  <connection kind="reset" version="24.1" start="clk_0.clk_reset" end="ILC.reset_n" />
  <interconnectRequirement for="$system" name="qsys_mm.clockCrossingAdapter" value="HANDSHAKE" />
  <interconnectRequirement for="$system" name="qsys_mm.maxAdditionalLatency" value="1" />
