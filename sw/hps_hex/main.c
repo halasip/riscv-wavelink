@@ -48,7 +48,7 @@ int main(int argc, char **argv) {
 
         for(i=0;i<2;i++)
         {
-                alt_setbits_word( ( virtual_base + ( ( uint32_t )( ALT_GPIO1_SWPORTA_DR_ADDR ) & ( uint32_t )( HW_REGS_MASK ) ) ), BIT_LED ); 
+                alt_setbits_word( ( virtual_base + ( ( uint32_t )( ALT_GPIO1_SWPORTA_DR_ADDR ) & ( uint32_t )( HW_REGS_MASK ) ) ), BIT_LED );
                 usleep(500*1000);
                 alt_clrbits_word( ( virtual_base + ( ( uint32_t )(  ALT_GPIO1_SWPORTA_DR_ADDR  )& ( uint32_t )( HW_REGS_MASK ) ) ), BIT_LED );
                 usleep(500*1000);
@@ -56,10 +56,10 @@ int main(int argc, char **argv) {
 
 
         printf("led test\r\n");
-        printf("the led flash 2 times\r\n");
+        printf("flash the led 2 times\r\n");
         for(i=0;i<2;i++)
         {
-                alt_setbits_word( ( virtual_base + ( ( uint32_t )( 0xff206000 ) & ( uint32_t )( HW_REGS_MASK ) ) ), 0xffffffff); /* ALT_GPIO1_SWPORTA_DR_ADDR ) & ( uint32_t )( HW_REGS_MASK ) ) ), BIT_LED ); */ 
+                alt_setbits_word( ( virtual_base + ( ( uint32_t )( 0xff206000 ) & ( uint32_t )( HW_REGS_MASK ) ) ), 0xffffffff); /* ALT_GPIO1_SWPORTA_DR_ADDR ) & ( uint32_t )( HW_REGS_MASK ) ) ), BIT_LED ); */
                 usleep(500*1000);
                 alt_clrbits_word( ( virtual_base + ( ( uint32_t )(  0xff206000/* ALT_GPIO1_SWPORTA_DR_ADDR */ )& ( uint32_t )( HW_REGS_MASK ) ) ), 0xffffffff );
                 usleep(500*1000);
