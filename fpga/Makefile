@@ -544,6 +544,8 @@ sd-update-preloader-uboot: sd-update-preloader sd-update-uboot
 
 .PHONY: generate-header-files
 generate-header-files:
+	cp soc_system/soc_system.html ../sw/common/
+
 	sopc-create-header-files \
 		soc_system.sopcinfo  \
 		--output-dir ../sw/common/hwlib/include \

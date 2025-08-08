@@ -389,7 +389,8 @@ altera_edge_detector pulse_debug_reset (
 		.DIGITS(6)
 	)(
 		.hex_vec(hex_pio),
-		.seg_vec({HEX5,HEX4,HEX3,HEX2,HEX1,HEX0})
+		.seg_vec({HEX5,HEX4,HEX3,HEX2,HEX1,HEX0}),
+		.negate(1'b1)
 	);
   
   
