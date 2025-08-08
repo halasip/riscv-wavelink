@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EnsembleReport name="soc_system" kind="soc_system" version="1.0" fabric="QSYS">
  <!-- Format version 24.1 1077 (Future versions may contain additional information.) -->
- <!-- 2025.08.01.19:05:47 -->
+ <!-- 2025.08.08.12:22:32 -->
  <!-- A collection of modules and connections -->
  <parameter name="AUTO_GENERATION_ID">
   <type>java.lang.Integer</type>
-  <value>1754067930</value>
+  <value>1754648539</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>false</visible>
@@ -1894,9 +1894,9 @@ parameters are a RESULT of the module parameters. -->
    </clockDomainMember>
    <clockDomainMember>
     <isBridge>false</isBridge>
-    <moduleName>hex_0_pio</moduleName>
+    <moduleName>hex_pio</moduleName>
     <slaveName>clk</slaveName>
-    <name>hex_0_pio.clk</name>
+    <name>hex_pio.clk</name>
    </clockDomainMember>
    <clockDomainMember>
     <isBridge>false</isBridge>
@@ -3983,9 +3983,9 @@ parameters are a RESULT of the module parameters. -->
    </memoryBlock>
    <memoryBlock>
     <isBridge>false</isBridge>
-    <moduleName>hex_0_pio</moduleName>
+    <moduleName>hex_pio</moduleName>
     <slaveName>s1</slaveName>
-    <name>hex_0_pio.s1</name>
+    <name>hex_pio.s1</name>
     <baseAddress>24576</baseAddress>
     <span>16</span>
    </memoryBlock>
@@ -4052,11 +4052,7 @@ parameters are a RESULT of the module parameters. -->
    </port>
   </interface>
  </module>
- <module
-   name="hex_0_pio"
-   kind="altera_avalon_pio"
-   version="24.1"
-   path="hex_0_pio">
+ <module name="hex_pio" kind="altera_avalon_pio" version="24.1" path="hex_pio">
   <!-- Describes a single module. Module parameters are
 the requested settings for a module instance. -->
   <assignment>
@@ -4073,7 +4069,7 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.DATA_WIDTH</name>
-   <value>7</value>
+   <value>24</value>
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.DO_TEST_BENCH_WIRING</name>
@@ -4125,7 +4121,7 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.dts.params.altr,gpio-bank-width</name>
-   <value>7</value>
+   <value>24</value>
   </assignment>
   <assignment>
    <name>embeddedsw.dts.params.resetvalue</name>
@@ -4217,7 +4213,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="width">
    <type>int</type>
-   <value>7</value>
+   <value>24</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -4825,7 +4821,7 @@ parameters are a RESULT of the module parameters. -->
    <port>
     <name>out_port</name>
     <direction>Output</direction>
-    <width>7</width>
+    <width>24</width>
     <role>export</role>
    </port>
   </interface>
@@ -21966,9 +21962,9 @@ parameters are a RESULT of the module parameters. -->
    </memoryBlock>
    <memoryBlock>
     <isBridge>false</isBridge>
-    <moduleName>hex_0_pio</moduleName>
+    <moduleName>hex_pio</moduleName>
     <slaveName>s1</slaveName>
-    <name>hex_0_pio.s1</name>
+    <name>hex_pio.s1</name>
     <baseAddress>24576</baseAddress>
     <span>16</span>
    </memoryBlock>
@@ -48971,9 +48967,9 @@ parameters are a RESULT of the module parameters. -->
    </memoryBlock>
    <memoryBlock>
     <isBridge>false</isBridge>
-    <moduleName>hex_0_pio</moduleName>
+    <moduleName>hex_pio</moduleName>
     <slaveName>s1</slaveName>
-    <name>hex_0_pio.s1</name>
+    <name>hex_pio.s1</name>
     <baseAddress>24576</baseAddress>
     <span>16</span>
    </memoryBlock>
@@ -51004,9 +51000,9 @@ parameters are a RESULT of the module parameters. -->
    </memoryBlock>
    <memoryBlock>
     <isBridge>false</isBridge>
-    <moduleName>hex_0_pio</moduleName>
+    <moduleName>hex_pio</moduleName>
     <slaveName>s1</slaveName>
-    <name>hex_0_pio.s1</name>
+    <name>hex_pio.s1</name>
     <baseAddress>4280311808</baseAddress>
     <span>16</span>
    </memoryBlock>
@@ -51891,9 +51887,9 @@ parameters are a RESULT of the module parameters. -->
    </memoryBlock>
    <memoryBlock>
     <isBridge>false</isBridge>
-    <moduleName>hex_0_pio</moduleName>
+    <moduleName>hex_pio</moduleName>
     <slaveName>s1</slaveName>
-    <name>hex_0_pio.s1</name>
+    <name>hex_pio.s1</name>
     <baseAddress>4280311808</baseAddress>
     <span>16</span>
    </memoryBlock>
@@ -82992,9 +82988,9 @@ parameters are a RESULT of the module parameters. -->
    </memoryBlock>
    <memoryBlock>
     <isBridge>false</isBridge>
-    <moduleName>hex_0_pio</moduleName>
+    <moduleName>hex_pio</moduleName>
     <slaveName>s1</slaveName>
-    <name>hex_0_pio.s1</name>
+    <name>hex_pio.s1</name>
     <baseAddress>24576</baseAddress>
     <span>16</span>
    </memoryBlock>
@@ -83013,7 +83009,7 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.TIMESTAMP</name>
-   <value>1754067930</value>
+   <value>1754648539</value>
   </assignment>
   <assignment>
    <name>embeddedsw.dts.compatible</name>
@@ -83033,7 +83029,7 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.dts.params.timestamp</name>
-   <value>1754067930</value>
+   <value>1754648539</value>
   </assignment>
   <assignment>
    <name>embeddedsw.dts.vendor</name>
@@ -83049,7 +83045,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="timestamp">
    <type>int</type>
-   <value>1754067930</value>
+   <value>1754648539</value>
    <derived>true</derived>
    <enabled>false</enabled>
    <visible>false</visible>
@@ -93990,11 +93986,11 @@ parameters are a RESULT of the module parameters. -->
   <endConnectionPoint>s1</endConnectionPoint>
  </connection>
  <connection
-   name="mm_bridge_0.m0/hex_0_pio.s1"
+   name="mm_bridge_0.m0/hex_pio.s1"
    kind="avalon"
    version="24.1"
    start="mm_bridge_0.m0"
-   end="hex_0_pio.s1">
+   end="hex_pio.s1">
   <parameter name="arbitrationPriority">
    <type>int</type>
    <value>1</value>
@@ -94037,7 +94033,7 @@ parameters are a RESULT of the module parameters. -->
   </parameter>
   <startModule>mm_bridge_0</startModule>
   <startConnectionPoint>m0</startConnectionPoint>
-  <endModule>hex_0_pio</endModule>
+  <endModule>hex_pio</endModule>
   <endConnectionPoint>s1</endConnectionPoint>
  </connection>
  <connection
@@ -94398,11 +94394,11 @@ parameters are a RESULT of the module parameters. -->
   <endConnectionPoint>s1</endConnectionPoint>
  </connection>
  <connection
-   name="fpga_only_master.master/hex_0_pio.s1"
+   name="fpga_only_master.master/hex_pio.s1"
    kind="avalon"
    version="24.1"
    start="fpga_only_master.master"
-   end="hex_0_pio.s1">
+   end="hex_pio.s1">
   <parameter name="arbitrationPriority">
    <type>int</type>
    <value>1</value>
@@ -94445,7 +94441,7 @@ parameters are a RESULT of the module parameters. -->
   </parameter>
   <startModule>fpga_only_master</startModule>
   <startConnectionPoint>master</startConnectionPoint>
-  <endModule>hex_0_pio</endModule>
+  <endModule>hex_pio</endModule>
   <endConnectionPoint>s1</endConnectionPoint>
  </connection>
  <connection
@@ -94719,11 +94715,11 @@ parameters are a RESULT of the module parameters. -->
   <endConnectionPoint>clk</endConnectionPoint>
  </connection>
  <connection
-   name="clk_0.clk/hex_0_pio.clk"
+   name="clk_0.clk/hex_pio.clk"
    kind="clock"
    version="24.1"
    start="clk_0.clk"
-   end="hex_0_pio.clk">
+   end="hex_pio.clk">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
    <value>UNKNOWN</value>
@@ -94742,7 +94738,7 @@ parameters are a RESULT of the module parameters. -->
   </parameter>
   <startModule>clk_0</startModule>
   <startConnectionPoint>clk</startConnectionPoint>
-  <endModule>hex_0_pio</endModule>
+  <endModule>hex_pio</endModule>
   <endConnectionPoint>clk</endConnectionPoint>
  </connection>
  <connection
@@ -95307,11 +95303,11 @@ parameters are a RESULT of the module parameters. -->
   <endConnectionPoint>reset</endConnectionPoint>
  </connection>
  <connection
-   name="clk_0.clk_reset/hex_0_pio.reset"
+   name="clk_0.clk_reset/hex_pio.reset"
    kind="reset"
    version="24.1"
    start="clk_0.clk_reset"
-   end="hex_0_pio.reset">
+   end="hex_pio.reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
    <value>UNKNOWN</value>
@@ -95330,7 +95326,7 @@ parameters are a RESULT of the module parameters. -->
   </parameter>
   <startModule>clk_0</startModule>
   <startConnectionPoint>clk_reset</startConnectionPoint>
-  <endModule>hex_0_pio</endModule>
+  <endModule>hex_pio</endModule>
   <endConnectionPoint>reset</endConnectionPoint>
  </connection>
  <connection

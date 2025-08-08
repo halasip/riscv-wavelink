@@ -5,9 +5,9 @@
   <columns>
    <connections preferredWidth="271" />
    <irq preferredWidth="63" />
-   <export preferredWidth="295" />
   </columns>
  </systemtable>
- <library expandedCategories="Library,Project" />
- <window width="6020" height="3378" x="3964" y="78" />
+ <library
+   expandedCategories="Project,Library/Basic Functions,Library/Interface Protocols,Library/Low Power,Library,Library/Memory Interfaces and Controllers,Library/DSP,Library/Processors and Peripherals/Peripherals,Library/Processors and Peripherals" />
+ <window width="3778" height="2089" x="62" y="71" />
 </preferences>

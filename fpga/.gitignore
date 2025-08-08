@@ -29,6 +29,40 @@
 # *.vhd
 # *.v
 
+
+##############
+# Exceptions:
+##############
+
+!*/*.cdf
+!*/*.qip
+
+
+#.qsys_edit
+#soc_system.sopcinfo
+#soc_system
+#output_files/DE10_Standard_GHRD.sof
+#output_files
+hps_isw_handoff
+software/preloader
+#soc_system.dts
+#soc_system.dtb
+*dump.txt
+#db
+#filelist.txt
+#fpga.dtbo
+#generate_hps_qsys_header.sh
+#greybox_tmp
+#hps_0.h
+hps_sdram_p0_all_pins.txt
+hps_sdram_p0_summary.csv
+#incremental_db
+#ip_upgrade_port_diff_reports
+#serv_req_info.txt
+#soc_system
+#stamp
+#start-proj.qws
+
 # ignore Quartus II generated files
 *_generation_script*
 *_inst.vhd
@@ -63,6 +97,7 @@
 */db/
 */incremental_db/
 */simulation/
+*/synthesis/
 */timing/
 */testbench/
 */*_sim/

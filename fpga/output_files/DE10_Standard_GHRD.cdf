@@ -5,8 +5,6 @@ JedecChain;
 
 	P ActionCode(Ign)
 		Device PartName(SOCVHPS) MfrSpec(OpMask(0));
-	P ActionCode(Cfg)
-		Device PartName(5CSXFC6D6F31) Path("/home/spater/repos/riscv-wavelink/fpga/output_files/") File("DE10_Standard_GHRD.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 

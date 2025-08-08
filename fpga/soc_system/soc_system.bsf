@@ -174,8 +174,8 @@ on the Quartus Prime software download page.
 	(port
 		(pt 0 192)
 		(output)
-		(text "hex0_pio_external_connection_export[6..0]" (rect 0 0 169 12)(font "Arial" (font_size 8)))
-		(text "hex0_pio_external_connection_export[6..0]" (rect 4 181 250 192)(font "Arial" (font_size 8)))
+		(text "hex_pio_external_connection_export[23..0]" (rect 0 0 169 12)(font "Arial" (font_size 8)))
+		(text "hex_pio_external_connection_export[23..0]" (rect 4 181 250 192)(font "Arial" (font_size 8)))
 		(line (pt 0 192)(pt 272 192)(line_width 3))
 	)
 	(port
@@ -654,7 +654,7 @@ on the Quartus Prime software download page.
 		(text "clk" (rect 277 107 572 224)(font "Arial" (color 0 0 0)))
 		(text "dipsw_pio_external_connection" (rect 91 123 356 259)(font "Arial" (color 128 0 0)(font_size 9)))
 		(text "export" (rect 277 147 590 304)(font "Arial" (color 0 0 0)))
-		(text "hex0_pio_external_connection" (rect 98 163 364 339)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "hex_pio_external_connection" (rect 105 163 372 339)(font "Arial" (color 128 0 0)(font_size 9)))
 		(text "export" (rect 277 187 590 384)(font "Arial" (color 0 0 0)))
 		(text "hps_0_f2h_cold_reset_req" (rect 114 203 372 419)(font "Arial" (color 128 0 0)(font_size 9)))
 		(text "reset_n" (rect 277 227 596 464)(font "Arial" (color 0 0 0)))
