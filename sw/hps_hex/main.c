@@ -19,11 +19,6 @@
 int main(int argc, char **argv) {
 
 
-                printf("ALT_STM_OFFSET: %08X", (int)ALT_STM_OFST);
-                printf("ALT_GPIO1_SWPORTA_DR_ADDR: %08X", (int)ALT_GPIO1_SWPORTA_DR_ADDR);
-                printf("ALT_GPIO1_SWPORTA_DDR_ADDR: %08X", (int)ALT_GPIO1_SWPORTA_DDR_ADDR);
-                printf("ALT_GPIO1_EXT_PORTA_ADDR: %08X", (int)ALT_GPIO1_EXT_PORTA_ADDR);
-
         void *virtual_base;
         int fd;
         uint32_t  scan_input;
@@ -42,44 +37,27 @@ int main(int argc, char **argv) {
                 close( fd );
                 return( 1 );
         }
-        // initialize the pio controller
-        // led: set the direction of the HPS GPIO1 bits attached to LEDs to output
-        alt_setbits_word( ( virtual_base + ( ( uint32_t )( ALT_GPIO1_SWPORTA_DDR_ADDR ) & ( uint32_t )( HW_REGS_MASK ) ) ), USER_IO_DIR );
+
+        alt_write_word( ( virtual_base + ( ( uint32_t )( ALT_LWFPGASLVS_ADDR + HEX_PIO_BASE ) & ( uint32_t )( HW_REGS_MASK ) ) ), 0x12345678);
+        usleep(1000*1000);
 
 
-        for(i=0;i<2;i++)
-        {
-                alt_setbits_word( ( virtual_base + ( ( uint32_t )( ALT_GPIO1_SWPORTA_DR_ADDR ) & ( uint32_t )( HW_REGS_MASK ) ) ), BIT_LED );
-                usleep(500*1000);
-                alt_clrbits_word( ( virtual_base + ( ( uint32_t )(  ALT_GPIO1_SWPORTA_DR_ADDR  )& ( uint32_t )( HW_REGS_MASK ) ) ), BIT_LED );
-                usleep(500*1000);
-        }
-
-
-        printf("led test\r\n");
-        printf("flash the led 2 times\r\n");
-        for(i=0;i<1;i++)
-        //for(i=0;i<10000;i++)
-        {
-                //alt_write_word( ( virtual_base + ( ( uint32_t )( ALT_LWFPGASLVS_ADDR + HEX_PIO_BASE ) & ( uint32_t )( HW_REGS_MASK ) ) ), i & 0x00ffffff);
-                alt_write_word( ( virtual_base + ( ( uint32_t )( ALT_LWFPGASLVS_ADDR + HEX_PIO_BASE ) & ( uint32_t )( HW_REGS_MASK ) ) ), 0x12345678);
-                usleep(1000*1000);
-                //alt_clrbits_word( ( virtual_base + ( ( uint32_t )(  ALT_LWFPGASLVS_ADDR + HEX_PIO_BASE )& ( uint32_t )( HW_REGS_MASK ) ) ), (0x123456) );
-                //usleep(500*1000);
-        }
-        printf("user key test \r\n");
-        printf("press key to control led\r\n");
-
+        i = 0;
 
         while(1){
+            i++;
+
             if (~alt_read_word((virtual_base+((uint32_t)( ALT_GPIO1_EXT_PORTA_ADDR )&(uint32_t)(HW_REGS_MASK))))&BUTTON_MASK) {
                 break;
             }
             scan_input = alt_read_word( ( virtual_base + ( ( uint32_t )( ALT_LWFPGASLVS_ADDR + DIPSW_PIO_BASE ) & ( uint32_t )( HW_REGS_MASK ) ) ) );
-            //printf("dipswitch input %08X\r\n", scan_input );
+
+            scan_input += ((  i & ((1<<12)-1) ) << 12) ;
+
             usleep(100*1000);
-            alt_write_word( ( virtual_base + ( ( uint32_t )( ALT_LWFPGASLVS_ADDR + LED_PIO_BASE ) & ( uint32_t )( HW_REGS_MASK ) ) ), scan_input );
+            alt_write_word( ( virtual_base + ( ( uint32_t )( ALT_LWFPGASLVS_ADDR + HEX_PIO_BASE ) & ( uint32_t )( HW_REGS_MASK ) ) ), scan_input );
         }
+
         // clean up our memory mapping and exit
         if( munmap( virtual_base, HW_REGS_SPAN ) != 0 ) {
                 printf( "ERROR: munmap() failed...\n" );
