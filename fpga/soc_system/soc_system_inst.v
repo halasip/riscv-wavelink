@@ -1,12 +1,49 @@
 	soc_system u0 (
-		.button_pio_external_connection_export  (<connected-to-button_pio_external_connection_export>),  //   button_pio_external_connection.export
-		.clk_0_in_clk                           (<connected-to-clk_0_in_clk>),                           //                     clk_0_clk_in.clk
-		.dipsw_pio_external_connection_export   (<connected-to-dipsw_pio_external_connection_export>),   //    dipsw_pio_external_connection.export
-		.hex_pio_out_port                       (<connected-to-hex_pio_out_port>),                       //      hex_pio_external_connection.export
+		.button_pio_export                      (<connected-to-button_pio_export>),                      //                       button_pio.export
+		.cgm_clk                                (<connected-to-cgm_clk>),                                //                              cgm.clk
+		.dipsw_pio_export                       (<connected-to-dipsw_pio_export>),                       //                        dipsw_pio.export
+		.f2sdram_only_master_master_reset_reset (<connected-to-f2sdram_only_master_master_reset_reset>), // f2sdram_only_master_master_reset.reset
+		.hex_pio_export                         (<connected-to-hex_pio_export>),                         //                          hex_pio.export
 		.hps_0_f2h_cold_rst_req_n               (<connected-to-hps_0_f2h_cold_rst_req_n>),               //         hps_0_f2h_cold_reset_req.reset_n
 		.hps_0_f2h_dbg_rst_req_n                (<connected-to-hps_0_f2h_dbg_rst_req_n>),                //        hps_0_f2h_debug_reset_req.reset_n
 		.hps_0_f2h_stm_hwevents                 (<connected-to-hps_0_f2h_stm_hwevents>),                 //          hps_0_f2h_stm_hw_events.stm_hwevents
 		.hps_0_f2h_warm_rst_req_n               (<connected-to-hps_0_f2h_warm_rst_req_n>),               //         hps_0_f2h_warm_reset_req.reset_n
+		.hps_0_h2f_AWID                         (<connected-to-hps_0_h2f_AWID>),                         //             hps_0_h2f_axi_master.awid
+		.hps_0_h2f_AWADDR                       (<connected-to-hps_0_h2f_AWADDR>),                       //                                 .awaddr
+		.hps_0_h2f_AWLEN                        (<connected-to-hps_0_h2f_AWLEN>),                        //                                 .awlen
+		.hps_0_h2f_AWSIZE                       (<connected-to-hps_0_h2f_AWSIZE>),                       //                                 .awsize
+		.hps_0_h2f_AWBURST                      (<connected-to-hps_0_h2f_AWBURST>),                      //                                 .awburst
+		.hps_0_h2f_AWLOCK                       (<connected-to-hps_0_h2f_AWLOCK>),                       //                                 .awlock
+		.hps_0_h2f_AWCACHE                      (<connected-to-hps_0_h2f_AWCACHE>),                      //                                 .awcache
+		.hps_0_h2f_AWPROT                       (<connected-to-hps_0_h2f_AWPROT>),                       //                                 .awprot
+		.hps_0_h2f_AWVALID                      (<connected-to-hps_0_h2f_AWVALID>),                      //                                 .awvalid
+		.hps_0_h2f_AWREADY                      (<connected-to-hps_0_h2f_AWREADY>),                      //                                 .awready
+		.hps_0_h2f_WID                          (<connected-to-hps_0_h2f_WID>),                          //                                 .wid
+		.hps_0_h2f_WDATA                        (<connected-to-hps_0_h2f_WDATA>),                        //                                 .wdata
+		.hps_0_h2f_WSTRB                        (<connected-to-hps_0_h2f_WSTRB>),                        //                                 .wstrb
+		.hps_0_h2f_WLAST                        (<connected-to-hps_0_h2f_WLAST>),                        //                                 .wlast
+		.hps_0_h2f_WVALID                       (<connected-to-hps_0_h2f_WVALID>),                       //                                 .wvalid
+		.hps_0_h2f_WREADY                       (<connected-to-hps_0_h2f_WREADY>),                       //                                 .wready
+		.hps_0_h2f_BID                          (<connected-to-hps_0_h2f_BID>),                          //                                 .bid
+		.hps_0_h2f_BRESP                        (<connected-to-hps_0_h2f_BRESP>),                        //                                 .bresp
+		.hps_0_h2f_BVALID                       (<connected-to-hps_0_h2f_BVALID>),                       //                                 .bvalid
+		.hps_0_h2f_BREADY                       (<connected-to-hps_0_h2f_BREADY>),                       //                                 .bready
+		.hps_0_h2f_ARID                         (<connected-to-hps_0_h2f_ARID>),                         //                                 .arid
+		.hps_0_h2f_ARADDR                       (<connected-to-hps_0_h2f_ARADDR>),                       //                                 .araddr
+		.hps_0_h2f_ARLEN                        (<connected-to-hps_0_h2f_ARLEN>),                        //                                 .arlen
+		.hps_0_h2f_ARSIZE                       (<connected-to-hps_0_h2f_ARSIZE>),                       //                                 .arsize
+		.hps_0_h2f_ARBURST                      (<connected-to-hps_0_h2f_ARBURST>),                      //                                 .arburst
+		.hps_0_h2f_ARLOCK                       (<connected-to-hps_0_h2f_ARLOCK>),                       //                                 .arlock
+		.hps_0_h2f_ARCACHE                      (<connected-to-hps_0_h2f_ARCACHE>),                      //                                 .arcache
+		.hps_0_h2f_ARPROT                       (<connected-to-hps_0_h2f_ARPROT>),                       //                                 .arprot
+		.hps_0_h2f_ARVALID                      (<connected-to-hps_0_h2f_ARVALID>),                      //                                 .arvalid
+		.hps_0_h2f_ARREADY                      (<connected-to-hps_0_h2f_ARREADY>),                      //                                 .arready
+		.hps_0_h2f_RID                          (<connected-to-hps_0_h2f_RID>),                          //                                 .rid
+		.hps_0_h2f_RDATA                        (<connected-to-hps_0_h2f_RDATA>),                        //                                 .rdata
+		.hps_0_h2f_RRESP                        (<connected-to-hps_0_h2f_RRESP>),                        //                                 .rresp
+		.hps_0_h2f_RLAST                        (<connected-to-hps_0_h2f_RLAST>),                        //                                 .rlast
+		.hps_0_h2f_RVALID                       (<connected-to-hps_0_h2f_RVALID>),                       //                                 .rvalid
+		.hps_0_h2f_RREADY                       (<connected-to-hps_0_h2f_RREADY>),                       //                                 .rready
 		.hps_0_h2f_rst_n                        (<connected-to-hps_0_h2f_rst_n>),                        //                  hps_0_h2f_reset.reset_n
 		.hps_0_hps_io_emac1_inst_TX_CLK         (<connected-to-hps_0_hps_io_emac1_inst_TX_CLK>),         //                     hps_0_hps_io.hps_io_emac1_inst_TX_CLK
 		.hps_0_hps_io_emac1_inst_TXD0           (<connected-to-hps_0_hps_io_emac1_inst_TXD0>),           //                                 .hps_io_emac1_inst_TXD0
@@ -70,7 +107,6 @@
 		.hps_0_hps_io_gpio_inst_GPIO53          (<connected-to-hps_0_hps_io_gpio_inst_GPIO53>),          //                                 .hps_io_gpio_inst_GPIO53
 		.hps_0_hps_io_gpio_inst_GPIO54          (<connected-to-hps_0_hps_io_gpio_inst_GPIO54>),          //                                 .hps_io_gpio_inst_GPIO54
 		.hps_0_hps_io_gpio_inst_GPIO61          (<connected-to-hps_0_hps_io_gpio_inst_GPIO61>),          //                                 .hps_io_gpio_inst_GPIO61
-		.led_pio_external_connection_export     (<connected-to-led_pio_external_connection_export>),     //      led_pio_external_connection.export
 		.hps_0_mem_a                            (<connected-to-hps_0_mem_a>),                            //                     hps_0_memory.mem_a
 		.hps_0_mem_ba                           (<connected-to-hps_0_mem_ba>),                           //                                 .mem_ba
 		.hps_0_mem_ck                           (<connected-to-hps_0_mem_ck>),                           //                                 .mem_ck
@@ -87,43 +123,7 @@
 		.hps_0_mem_odt                          (<connected-to-hps_0_mem_odt>),                          //                                 .mem_odt
 		.hps_0_mem_dm                           (<connected-to-hps_0_mem_dm>),                           //                                 .mem_dm
 		.hps_0_oct_rzqin                        (<connected-to-hps_0_oct_rzqin>),                        //                                 .oct_rzqin
-		.clk_0_reset_n                          (<connected-to-clk_0_reset_n>),                          //               clk_0_clk_in_reset.reset_n
-		.hps_0_h2f_AWID                         (<connected-to-hps_0_h2f_AWID>),                         //             hps_0_h2f_axi_master.awid
-		.hps_0_h2f_AWADDR                       (<connected-to-hps_0_h2f_AWADDR>),                       //                                 .awaddr
-		.hps_0_h2f_AWLEN                        (<connected-to-hps_0_h2f_AWLEN>),                        //                                 .awlen
-		.hps_0_h2f_AWSIZE                       (<connected-to-hps_0_h2f_AWSIZE>),                       //                                 .awsize
-		.hps_0_h2f_AWBURST                      (<connected-to-hps_0_h2f_AWBURST>),                      //                                 .awburst
-		.hps_0_h2f_AWLOCK                       (<connected-to-hps_0_h2f_AWLOCK>),                       //                                 .awlock
-		.hps_0_h2f_AWCACHE                      (<connected-to-hps_0_h2f_AWCACHE>),                      //                                 .awcache
-		.hps_0_h2f_AWPROT                       (<connected-to-hps_0_h2f_AWPROT>),                       //                                 .awprot
-		.hps_0_h2f_AWVALID                      (<connected-to-hps_0_h2f_AWVALID>),                      //                                 .awvalid
-		.hps_0_h2f_AWREADY                      (<connected-to-hps_0_h2f_AWREADY>),                      //                                 .awready
-		.hps_0_h2f_WID                          (<connected-to-hps_0_h2f_WID>),                          //                                 .wid
-		.hps_0_h2f_WDATA                        (<connected-to-hps_0_h2f_WDATA>),                        //                                 .wdata
-		.hps_0_h2f_WSTRB                        (<connected-to-hps_0_h2f_WSTRB>),                        //                                 .wstrb
-		.hps_0_h2f_WLAST                        (<connected-to-hps_0_h2f_WLAST>),                        //                                 .wlast
-		.hps_0_h2f_WVALID                       (<connected-to-hps_0_h2f_WVALID>),                       //                                 .wvalid
-		.hps_0_h2f_WREADY                       (<connected-to-hps_0_h2f_WREADY>),                       //                                 .wready
-		.hps_0_h2f_BID                          (<connected-to-hps_0_h2f_BID>),                          //                                 .bid
-		.hps_0_h2f_BRESP                        (<connected-to-hps_0_h2f_BRESP>),                        //                                 .bresp
-		.hps_0_h2f_BVALID                       (<connected-to-hps_0_h2f_BVALID>),                       //                                 .bvalid
-		.hps_0_h2f_BREADY                       (<connected-to-hps_0_h2f_BREADY>),                       //                                 .bready
-		.hps_0_h2f_ARID                         (<connected-to-hps_0_h2f_ARID>),                         //                                 .arid
-		.hps_0_h2f_ARADDR                       (<connected-to-hps_0_h2f_ARADDR>),                       //                                 .araddr
-		.hps_0_h2f_ARLEN                        (<connected-to-hps_0_h2f_ARLEN>),                        //                                 .arlen
-		.hps_0_h2f_ARSIZE                       (<connected-to-hps_0_h2f_ARSIZE>),                       //                                 .arsize
-		.hps_0_h2f_ARBURST                      (<connected-to-hps_0_h2f_ARBURST>),                      //                                 .arburst
-		.hps_0_h2f_ARLOCK                       (<connected-to-hps_0_h2f_ARLOCK>),                       //                                 .arlock
-		.hps_0_h2f_ARCACHE                      (<connected-to-hps_0_h2f_ARCACHE>),                      //                                 .arcache
-		.hps_0_h2f_ARPROT                       (<connected-to-hps_0_h2f_ARPROT>),                       //                                 .arprot
-		.hps_0_h2f_ARVALID                      (<connected-to-hps_0_h2f_ARVALID>),                      //                                 .arvalid
-		.hps_0_h2f_ARREADY                      (<connected-to-hps_0_h2f_ARREADY>),                      //                                 .arready
-		.hps_0_h2f_RID                          (<connected-to-hps_0_h2f_RID>),                          //                                 .rid
-		.hps_0_h2f_RDATA                        (<connected-to-hps_0_h2f_RDATA>),                        //                                 .rdata
-		.hps_0_h2f_RRESP                        (<connected-to-hps_0_h2f_RRESP>),                        //                                 .rresp
-		.hps_0_h2f_RLAST                        (<connected-to-hps_0_h2f_RLAST>),                        //                                 .rlast
-		.hps_0_h2f_RVALID                       (<connected-to-hps_0_h2f_RVALID>),                       //                                 .rvalid
-		.hps_0_h2f_RREADY                       (<connected-to-hps_0_h2f_RREADY>),                       //                                 .rready
-		.f2sdram_only_master_master_reset_reset (<connected-to-f2sdram_only_master_master_reset_reset>)  // f2sdram_only_master_master_reset.reset
+		.led_pio_export                         (<connected-to-led_pio_export>),                         //                          led_pio.export
+		.rgm_reset_n                            (<connected-to-rgm_reset_n>)                             //                              rgm.reset_n
 	);
 

@@ -37,8 +37,8 @@ test: clean
 	-@ssh root@${IP} "         \
 		cd ~/test_sandbox/    ;\
 		make > build.log     &&\
-		./$(TARGET) 2>&1 | tee run.log ;\
-		echo Finished \
+		./$(TARGET) 2>&1 | tee run.log\
+		; :echo Finished \
 		" 2>&1 >  local.log
 
 	scp -rp  root@${IP}:~/test_sandbox/*.log ./

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EnsembleReport name="soc_system" kind="soc_system" version="1.0" fabric="QSYS">
  <!-- Format version 24.1 1077 (Future versions may contain additional information.) -->
- <!-- 2025.08.13.15:17:42 -->
+ <!-- 2025.08.13.18:21:21 -->
  <!-- A collection of modules and connections -->
  <parameter name="AUTO_GENERATION_ID">
   <type>java.lang.Integer</type>
-  <value>1755091048</value>
+  <value>1755102062</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>false</visible>
@@ -48,7 +48,7 @@
   <valid>true</valid>
   <sysinfo_type>DEVICE_SPEEDGRADE</sysinfo_type>
  </parameter>
- <parameter name="AUTO_CLK_0_CLK_IN_CLOCK_RATE">
+ <parameter name="AUTO_CLK_CLOCK_RATE">
   <type>java.lang.Long</type>
   <value>-1</value>
   <derived>false</derived>
@@ -56,9 +56,9 @@
   <visible>false</visible>
   <valid>true</valid>
   <sysinfo_type>CLOCK_RATE</sysinfo_type>
-  <sysinfo_arg>clk_0_clk_in</sysinfo_arg>
+  <sysinfo_arg>clk</sysinfo_arg>
  </parameter>
- <parameter name="AUTO_CLK_0_CLK_IN_CLOCK_DOMAIN">
+ <parameter name="AUTO_CLK_CLOCK_DOMAIN">
   <type>java.lang.Integer</type>
   <value>-1</value>
   <derived>false</derived>
@@ -66,9 +66,9 @@
   <visible>false</visible>
   <valid>true</valid>
   <sysinfo_type>CLOCK_DOMAIN</sysinfo_type>
-  <sysinfo_arg>clk_0_clk_in</sysinfo_arg>
+  <sysinfo_arg>clk</sysinfo_arg>
  </parameter>
- <parameter name="AUTO_CLK_0_CLK_IN_RESET_DOMAIN">
+ <parameter name="AUTO_CLK_RESET_DOMAIN">
   <type>java.lang.Integer</type>
   <value>-1</value>
   <derived>false</derived>
@@ -76,7 +76,7 @@
   <visible>false</visible>
   <valid>true</valid>
   <sysinfo_type>RESET_DOMAIN</sysinfo_type>
-  <sysinfo_arg>clk_0_clk_in</sysinfo_arg>
+  <sysinfo_arg>clk</sysinfo_arg>
  </parameter>
  <parameter name="AUTO_HPS_0_H2F_AXI_MASTER_ADDRESS_MAP">
   <type>com.altera.entityinterfaces.moduleext.AddressMap</type>
@@ -87348,7 +87348,7 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.TIMESTAMP</name>
-   <value>1755091048</value>
+   <value>1755102062</value>
   </assignment>
   <assignment>
    <name>embeddedsw.dts.compatible</name>
@@ -87368,7 +87368,7 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.dts.params.timestamp</name>
-   <value>1755091048</value>
+   <value>1755102062</value>
   </assignment>
   <assignment>
    <name>embeddedsw.dts.vendor</name>
@@ -87384,7 +87384,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="timestamp">
    <type>int</type>
-   <value>1755091048</value>
+   <value>1755102062</value>
    <derived>true</derived>
    <enabled>false</enabled>
    <visible>false</visible>

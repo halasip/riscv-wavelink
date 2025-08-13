@@ -7,13 +7,13 @@
    <irq preferredWidth="63" />
    <security visible="1" />
    <defaultSlave visible="0" preferredWidth="182" />
-   <autoexport visible="0" />
+   <autoexport visible="1" />
    <export preferredWidth="248" />
    <tags visible="0" />
    <opcodeName visible="0" />
   </columns>
  </systemtable>
- <library
-   expandedCategories="Library/Basic Functions/Bridges and Adaptors/Streaming,Library/Basic Functions/DMA,Library/DSP/Filters,Library/DSP/Primitive DSP,Library/Basic Functions/On Chip Memory,Library/DSP,Library,Library/Basic Functions,Library/DSP/Signal Generation,Library/Basic Functions/Bridges and Adaptors,Library/Basic Functions/DMA/mSGDMA Sub-core,Library/Basic Functions/Bridges and Adaptors/Memory Mapped,Library/DSP/Transforms,Project" />
+ <library expandedCategories="Library,Project" />
  <window width="3778" height="2089" x="62" y="71" />
+ <hdlexample language="VERILOG" />
 </preferences>
