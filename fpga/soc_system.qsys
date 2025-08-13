@@ -13,7 +13,7 @@
    {
       datum _sortIndex
       {
-         value = "10";
+         value = "7";
          type = "int";
       }
    }
@@ -29,7 +29,7 @@
    {
       datum _sortIndex
       {
-         value = "7";
+         value = "11";
          type = "int";
       }
    }
@@ -42,7 +42,7 @@
       }
       datum baseAddress
       {
-         value = "20480";
+         value = "12320";
          type = "String";
       }
    }
@@ -50,7 +50,7 @@
    {
       datum _sortIndex
       {
-         value = "11";
+         value = "5";
          type = "int";
       }
    }
@@ -58,7 +58,7 @@
    {
       datum _sortIndex
       {
-         value = "6";
+         value = "10";
          type = "int";
       }
    }
@@ -79,7 +79,7 @@
       }
       datum baseAddress
       {
-         value = "16384";
+         value = "12304";
          type = "String";
       }
    }
@@ -87,15 +87,79 @@
    {
       datum _sortIndex
       {
-         value = "4";
+         value = "3";
          type = "int";
+      }
+   }
+   element fifo_0
+   {
+      datum _sortIndex
+      {
+         value = "14";
+         type = "int";
+      }
+   }
+   element fifo_0.in_csr
+   {
+      datum baseAddress
+      {
+         value = "12800";
+         type = "String";
+      }
+   }
+   element fifo_0.out
+   {
+      datum baseAddress
+      {
+         value = "12832";
+         type = "String";
+      }
+   }
+   element fifo_1
+   {
+      datum _sortIndex
+      {
+         value = "15";
+         type = "int";
+      }
+   }
+   element fifo_1.in
+   {
+      datum baseAddress
+      {
+         value = "13088";
+         type = "String";
+      }
+   }
+   element fifo_1.in_csr
+   {
+      datum baseAddress
+      {
+         value = "13056";
+         type = "String";
+      }
+   }
+   element fir_compiler_ii_0
+   {
+      datum _sortIndex
+      {
+         value = "13";
+         type = "int";
+      }
+   }
+   element fir_compiler_ii_0.avalon_mm_slave
+   {
+      datum baseAddress
+      {
+         value = "12544";
+         type = "String";
       }
    }
    element fpga_only_master
    {
       datum _sortIndex
       {
-         value = "3";
+         value = "4";
          type = "int";
       }
    }
@@ -111,7 +175,7 @@
    {
       datum baseAddress
       {
-         value = "24576";
+         value = "12336";
          type = "String";
       }
    }
@@ -131,6 +195,14 @@
          type = "String";
       }
    }
+   element hps_0.h2f_axi_master
+   {
+      datum _tags
+      {
+         value = "";
+         type = "String";
+      }
+   }
    element hps_only_master
    {
       datum _sortIndex
@@ -143,7 +215,7 @@
    {
       datum _sortIndex
       {
-         value = "9";
+         value = "8";
          type = "int";
       }
    }
@@ -164,7 +236,7 @@
    {
       datum _sortIndex
       {
-         value = "5";
+         value = "9";
          type = "int";
       }
    }
@@ -185,7 +257,7 @@
    {
       datum _sortIndex
       {
-         value = "8";
+         value = "6";
          type = "int";
       }
    }
@@ -236,50 +308,229 @@
    internal="button_pio.external_connection"
    type="conduit"
    dir="end" />
- <interface name="clk" internal="clk_0.clk_in" type="clock" dir="end" />
+ <interface name="clk_0_clk_in" internal="clk_0.clk_in" type="clock" dir="end">
+  <port name="clk_0_in_clk" internal="in_clk" />
+ </interface>
+ <interface
+   name="clk_0_clk_in_reset"
+   internal="clk_0.clk_in_reset"
+   type="reset"
+   dir="end">
+  <port name="clk_0_reset_n" internal="reset_n" />
+ </interface>
  <interface
    name="dipsw_pio_external_connection"
    internal="dipsw_pio.external_connection"
    type="conduit"
    dir="end" />
  <interface
+   name="f2sdram_only_master_master_reset"
+   internal="f2sdram_only_master.master_reset"
+   type="reset"
+   dir="start">
+  <port
+     name="f2sdram_only_master_master_reset_reset"
+     internal="master_reset_reset" />
+ </interface>
+ <interface
    name="hex_pio_external_connection"
    internal="hex_pio.external_connection"
    type="conduit"
-   dir="end" />
+   dir="end">
+  <port name="hex_pio_out_port" internal="out_port" />
+ </interface>
  <interface
    name="hps_0_f2h_cold_reset_req"
    internal="hps_0.f2h_cold_reset_req"
    type="reset"
-   dir="end" />
+   dir="end">
+  <port name="hps_0_f2h_cold_rst_req_n" internal="f2h_cold_rst_req_n" />
+ </interface>
  <interface
    name="hps_0_f2h_debug_reset_req"
    internal="hps_0.f2h_debug_reset_req"
    type="reset"
-   dir="end" />
+   dir="end">
+  <port name="hps_0_f2h_dbg_rst_req_n" internal="f2h_dbg_rst_req_n" />
+ </interface>
  <interface
    name="hps_0_f2h_stm_hw_events"
    internal="hps_0.f2h_stm_hw_events"
    type="conduit"
-   dir="end" />
+   dir="end">
+  <port name="hps_0_f2h_stm_hwevents" internal="f2h_stm_hwevents" />
+ </interface>
  <interface
    name="hps_0_f2h_warm_reset_req"
    internal="hps_0.f2h_warm_reset_req"
    type="reset"
-   dir="end" />
+   dir="end">
+  <port name="hps_0_f2h_warm_rst_req_n" internal="f2h_warm_rst_req_n" />
+ </interface>
+ <interface
+   name="hps_0_h2f_axi_master"
+   internal="hps_0.h2f_axi_master"
+   type="axi"
+   dir="start">
+  <port name="hps_0_h2f_AWID" internal="h2f_AWID" />
+  <port name="hps_0_h2f_AWADDR" internal="h2f_AWADDR" />
+  <port name="hps_0_h2f_AWLEN" internal="h2f_AWLEN" />
+  <port name="hps_0_h2f_AWSIZE" internal="h2f_AWSIZE" />
+  <port name="hps_0_h2f_AWBURST" internal="h2f_AWBURST" />
+  <port name="hps_0_h2f_AWLOCK" internal="h2f_AWLOCK" />
+  <port name="hps_0_h2f_AWCACHE" internal="h2f_AWCACHE" />
+  <port name="hps_0_h2f_AWPROT" internal="h2f_AWPROT" />
+  <port name="hps_0_h2f_AWVALID" internal="h2f_AWVALID" />
+  <port name="hps_0_h2f_AWREADY" internal="h2f_AWREADY" />
+  <port name="hps_0_h2f_WID" internal="h2f_WID" />
+  <port name="hps_0_h2f_WDATA" internal="h2f_WDATA" />
+  <port name="hps_0_h2f_WSTRB" internal="h2f_WSTRB" />
+  <port name="hps_0_h2f_WLAST" internal="h2f_WLAST" />
+  <port name="hps_0_h2f_WVALID" internal="h2f_WVALID" />
+  <port name="hps_0_h2f_WREADY" internal="h2f_WREADY" />
+  <port name="hps_0_h2f_BID" internal="h2f_BID" />
+  <port name="hps_0_h2f_BRESP" internal="h2f_BRESP" />
+  <port name="hps_0_h2f_BVALID" internal="h2f_BVALID" />
+  <port name="hps_0_h2f_BREADY" internal="h2f_BREADY" />
+  <port name="hps_0_h2f_ARID" internal="h2f_ARID" />
+  <port name="hps_0_h2f_ARADDR" internal="h2f_ARADDR" />
+  <port name="hps_0_h2f_ARLEN" internal="h2f_ARLEN" />
+  <port name="hps_0_h2f_ARSIZE" internal="h2f_ARSIZE" />
+  <port name="hps_0_h2f_ARBURST" internal="h2f_ARBURST" />
+  <port name="hps_0_h2f_ARLOCK" internal="h2f_ARLOCK" />
+  <port name="hps_0_h2f_ARCACHE" internal="h2f_ARCACHE" />
+  <port name="hps_0_h2f_ARPROT" internal="h2f_ARPROT" />
+  <port name="hps_0_h2f_ARVALID" internal="h2f_ARVALID" />
+  <port name="hps_0_h2f_ARREADY" internal="h2f_ARREADY" />
+  <port name="hps_0_h2f_RID" internal="h2f_RID" />
+  <port name="hps_0_h2f_RDATA" internal="h2f_RDATA" />
+  <port name="hps_0_h2f_RRESP" internal="h2f_RRESP" />
+  <port name="hps_0_h2f_RLAST" internal="h2f_RLAST" />
+  <port name="hps_0_h2f_RVALID" internal="h2f_RVALID" />
+  <port name="hps_0_h2f_RREADY" internal="h2f_RREADY" />
+ </interface>
  <interface
    name="hps_0_h2f_reset"
    internal="hps_0.h2f_reset"
    type="reset"
-   dir="start" />
- <interface name="hps_0_hps_io" internal="hps_0.hps_io" type="conduit" dir="end" />
+   dir="start">
+  <port name="hps_0_h2f_rst_n" internal="h2f_rst_n" />
+ </interface>
+ <interface name="hps_0_hps_io" internal="hps_0.hps_io" type="conduit" dir="end">
+  <port
+     name="hps_0_hps_io_emac1_inst_TX_CLK"
+     internal="hps_io_emac1_inst_TX_CLK" />
+  <port name="hps_0_hps_io_emac1_inst_TXD0" internal="hps_io_emac1_inst_TXD0" />
+  <port name="hps_0_hps_io_emac1_inst_TXD1" internal="hps_io_emac1_inst_TXD1" />
+  <port name="hps_0_hps_io_emac1_inst_TXD2" internal="hps_io_emac1_inst_TXD2" />
+  <port name="hps_0_hps_io_emac1_inst_TXD3" internal="hps_io_emac1_inst_TXD3" />
+  <port name="hps_0_hps_io_emac1_inst_RXD0" internal="hps_io_emac1_inst_RXD0" />
+  <port name="hps_0_hps_io_emac1_inst_MDIO" internal="hps_io_emac1_inst_MDIO" />
+  <port name="hps_0_hps_io_emac1_inst_MDC" internal="hps_io_emac1_inst_MDC" />
+  <port
+     name="hps_0_hps_io_emac1_inst_RX_CTL"
+     internal="hps_io_emac1_inst_RX_CTL" />
+  <port
+     name="hps_0_hps_io_emac1_inst_TX_CTL"
+     internal="hps_io_emac1_inst_TX_CTL" />
+  <port
+     name="hps_0_hps_io_emac1_inst_RX_CLK"
+     internal="hps_io_emac1_inst_RX_CLK" />
+  <port name="hps_0_hps_io_emac1_inst_RXD1" internal="hps_io_emac1_inst_RXD1" />
+  <port name="hps_0_hps_io_emac1_inst_RXD2" internal="hps_io_emac1_inst_RXD2" />
+  <port name="hps_0_hps_io_emac1_inst_RXD3" internal="hps_io_emac1_inst_RXD3" />
+  <port name="hps_0_hps_io_qspi_inst_IO0" internal="hps_io_qspi_inst_IO0" />
+  <port name="hps_0_hps_io_qspi_inst_IO1" internal="hps_io_qspi_inst_IO1" />
+  <port name="hps_0_hps_io_qspi_inst_IO2" internal="hps_io_qspi_inst_IO2" />
+  <port name="hps_0_hps_io_qspi_inst_IO3" internal="hps_io_qspi_inst_IO3" />
+  <port name="hps_0_hps_io_qspi_inst_SS0" internal="hps_io_qspi_inst_SS0" />
+  <port name="hps_0_hps_io_qspi_inst_CLK" internal="hps_io_qspi_inst_CLK" />
+  <port name="hps_0_hps_io_sdio_inst_CMD" internal="hps_io_sdio_inst_CMD" />
+  <port name="hps_0_hps_io_sdio_inst_D0" internal="hps_io_sdio_inst_D0" />
+  <port name="hps_0_hps_io_sdio_inst_D1" internal="hps_io_sdio_inst_D1" />
+  <port name="hps_0_hps_io_sdio_inst_CLK" internal="hps_io_sdio_inst_CLK" />
+  <port name="hps_0_hps_io_sdio_inst_D2" internal="hps_io_sdio_inst_D2" />
+  <port name="hps_0_hps_io_sdio_inst_D3" internal="hps_io_sdio_inst_D3" />
+  <port name="hps_0_hps_io_usb1_inst_D0" internal="hps_io_usb1_inst_D0" />
+  <port name="hps_0_hps_io_usb1_inst_D1" internal="hps_io_usb1_inst_D1" />
+  <port name="hps_0_hps_io_usb1_inst_D2" internal="hps_io_usb1_inst_D2" />
+  <port name="hps_0_hps_io_usb1_inst_D3" internal="hps_io_usb1_inst_D3" />
+  <port name="hps_0_hps_io_usb1_inst_D4" internal="hps_io_usb1_inst_D4" />
+  <port name="hps_0_hps_io_usb1_inst_D5" internal="hps_io_usb1_inst_D5" />
+  <port name="hps_0_hps_io_usb1_inst_D6" internal="hps_io_usb1_inst_D6" />
+  <port name="hps_0_hps_io_usb1_inst_D7" internal="hps_io_usb1_inst_D7" />
+  <port name="hps_0_hps_io_usb1_inst_CLK" internal="hps_io_usb1_inst_CLK" />
+  <port name="hps_0_hps_io_usb1_inst_STP" internal="hps_io_usb1_inst_STP" />
+  <port name="hps_0_hps_io_usb1_inst_DIR" internal="hps_io_usb1_inst_DIR" />
+  <port name="hps_0_hps_io_usb1_inst_NXT" internal="hps_io_usb1_inst_NXT" />
+  <port name="hps_0_hps_io_spim0_inst_CLK" internal="hps_io_spim0_inst_CLK" />
+  <port name="hps_0_hps_io_spim0_inst_MOSI" internal="hps_io_spim0_inst_MOSI" />
+  <port name="hps_0_hps_io_spim0_inst_MISO" internal="hps_io_spim0_inst_MISO" />
+  <port name="hps_0_hps_io_spim0_inst_SS0" internal="hps_io_spim0_inst_SS0" />
+  <port name="hps_0_hps_io_spim1_inst_CLK" internal="hps_io_spim1_inst_CLK" />
+  <port name="hps_0_hps_io_spim1_inst_MOSI" internal="hps_io_spim1_inst_MOSI" />
+  <port name="hps_0_hps_io_spim1_inst_MISO" internal="hps_io_spim1_inst_MISO" />
+  <port name="hps_0_hps_io_spim1_inst_SS0" internal="hps_io_spim1_inst_SS0" />
+  <port name="hps_0_hps_io_uart0_inst_RX" internal="hps_io_uart0_inst_RX" />
+  <port name="hps_0_hps_io_uart0_inst_TX" internal="hps_io_uart0_inst_TX" />
+  <port name="hps_0_hps_io_i2c0_inst_SDA" internal="hps_io_i2c0_inst_SDA" />
+  <port name="hps_0_hps_io_i2c0_inst_SCL" internal="hps_io_i2c0_inst_SCL" />
+  <port name="hps_0_hps_io_i2c1_inst_SDA" internal="hps_io_i2c1_inst_SDA" />
+  <port name="hps_0_hps_io_i2c1_inst_SCL" internal="hps_io_i2c1_inst_SCL" />
+  <port
+     name="hps_0_hps_io_gpio_inst_GPIO09"
+     internal="hps_io_gpio_inst_GPIO09" />
+  <port
+     name="hps_0_hps_io_gpio_inst_GPIO35"
+     internal="hps_io_gpio_inst_GPIO35" />
+  <port
+     name="hps_0_hps_io_gpio_inst_GPIO37"
+     internal="hps_io_gpio_inst_GPIO37" />
+  <port
+     name="hps_0_hps_io_gpio_inst_GPIO40"
+     internal="hps_io_gpio_inst_GPIO40" />
+  <port
+     name="hps_0_hps_io_gpio_inst_GPIO41"
+     internal="hps_io_gpio_inst_GPIO41" />
+  <port
+     name="hps_0_hps_io_gpio_inst_GPIO44"
+     internal="hps_io_gpio_inst_GPIO44" />
+  <port
+     name="hps_0_hps_io_gpio_inst_GPIO48"
+     internal="hps_io_gpio_inst_GPIO48" />
+  <port
+     name="hps_0_hps_io_gpio_inst_GPIO53"
+     internal="hps_io_gpio_inst_GPIO53" />
+  <port
+     name="hps_0_hps_io_gpio_inst_GPIO54"
+     internal="hps_io_gpio_inst_GPIO54" />
+  <port
+     name="hps_0_hps_io_gpio_inst_GPIO61"
+     internal="hps_io_gpio_inst_GPIO61" />
+ </interface>
+ <interface name="hps_0_memory" internal="hps_0.memory" type="conduit" dir="end">
+  <port name="hps_0_mem_a" internal="mem_a" />
+  <port name="hps_0_mem_ba" internal="mem_ba" />
+  <port name="hps_0_mem_ck" internal="mem_ck" />
+  <port name="hps_0_mem_ck_n" internal="mem_ck_n" />
+  <port name="hps_0_mem_cke" internal="mem_cke" />
+  <port name="hps_0_mem_cs_n" internal="mem_cs_n" />
+  <port name="hps_0_mem_ras_n" internal="mem_ras_n" />
+  <port name="hps_0_mem_cas_n" internal="mem_cas_n" />
+  <port name="hps_0_mem_we_n" internal="mem_we_n" />
+  <port name="hps_0_mem_reset_n" internal="mem_reset_n" />
+  <port name="hps_0_mem_dq" internal="mem_dq" />
+  <port name="hps_0_mem_dqs" internal="mem_dqs" />
+  <port name="hps_0_mem_dqs_n" internal="mem_dqs_n" />
+  <port name="hps_0_mem_odt" internal="mem_odt" />
+  <port name="hps_0_mem_dm" internal="mem_dm" />
+  <port name="hps_0_oct_rzqin" internal="oct_rzqin" />
+ </interface>
  <interface
    name="led_pio_external_connection"
    internal="led_pio.external_connection"
    type="conduit"
    dir="end" />
- <interface name="memory" internal="hps_0.memory" type="conduit" dir="end" />
- <interface name="reset" internal="clk_0.clk_in_reset" type="reset" dir="end" />
  <module
    name="ILC"
    kind="interrupt_latency_counter"
@@ -336,6 +587,96 @@
   <parameter name="FIFO_DEPTHS" value="2" />
   <parameter name="PLI_PORT" value="50000" />
   <parameter name="USE_PLI" value="0" />
+ </module>
+ <module name="fifo_0" kind="altera_avalon_fifo" version="24.1" enabled="1">
+  <parameter name="avalonMMAvalonMMDataWidth" value="32" />
+  <parameter name="avalonMMAvalonSTDataWidth" value="32" />
+  <parameter name="bitsPerSymbol" value="20" />
+  <parameter name="channelWidth" value="0" />
+  <parameter name="deviceFamilyString" value="Cyclone V" />
+  <parameter name="errorWidth" value="0" />
+  <parameter name="fifoDepth" value="128" />
+  <parameter name="fifoInputInterfaceOptions" value="AVALONST_SINK" />
+  <parameter name="fifoOutputInterfaceOptions" value="AVALONMM_READ" />
+  <parameter name="showHiddenFeatures" value="false" />
+  <parameter name="singleClockMode" value="true" />
+  <parameter name="singleResetMode" value="false" />
+  <parameter name="symbolsPerBeat" value="1" />
+  <parameter name="useBackpressure" value="true" />
+  <parameter name="useIRQ" value="true" />
+  <parameter name="usePacket" value="false" />
+  <parameter name="useReadControl" value="false" />
+  <parameter name="useRegister" value="false" />
+  <parameter name="useWriteControl" value="true" />
+ </module>
+ <module name="fifo_1" kind="altera_avalon_fifo" version="24.1" enabled="1">
+  <parameter name="avalonMMAvalonMMDataWidth" value="32" />
+  <parameter name="avalonMMAvalonSTDataWidth" value="32" />
+  <parameter name="bitsPerSymbol" value="20" />
+  <parameter name="channelWidth" value="0" />
+  <parameter name="deviceFamilyString" value="Cyclone V" />
+  <parameter name="errorWidth" value="0" />
+  <parameter name="fifoDepth" value="128" />
+  <parameter name="fifoInputInterfaceOptions" value="AVALONMM_WRITE" />
+  <parameter name="fifoOutputInterfaceOptions" value="AVALONST_SOURCE" />
+  <parameter name="showHiddenFeatures" value="false" />
+  <parameter name="singleClockMode" value="true" />
+  <parameter name="singleResetMode" value="false" />
+  <parameter name="symbolsPerBeat" value="1" />
+  <parameter name="useBackpressure" value="true" />
+  <parameter name="useIRQ" value="true" />
+  <parameter name="usePacket" value="false" />
+  <parameter name="useReadControl" value="false" />
+  <parameter name="useRegister" value="false" />
+  <parameter name="useWriteControl" value="true" />
+ </module>
+ <module
+   name="fir_compiler_ii_0"
+   kind="altera_fir_compiler_ii"
+   version="24.1"
+   enabled="1">
+  <parameter name="L_bandsFilter" value="1" />
+  <parameter name="MODE_STRING" value="None Set" />
+  <parameter name="backPressure" value="false" />
+  <parameter name="bankCount" value="1" />
+  <parameter name="bankDisplay" value="0" />
+  <parameter name="baseAddress" value="0" />
+  <parameter name="channelModes" value="0,1,2,3" />
+  <parameter name="clockRate" value="50" />
+  <parameter name="clockSlack" value="0" />
+  <parameter name="coeffBitWidth" value="20" />
+  <parameter name="coeffComplex" value="false" />
+  <parameter name="coeffFracBitWidth" value="19" />
+  <parameter name="coeffReload" value="true" />
+  <parameter name="coeffScaling" value="auto" />
+  <parameter name="coeffSetRealValue">0.0176663,0.013227,0.0,-0.0149911,-0.0227152,-0.0172976,0.0,0.0204448,0.0318046,0.0249882,0.0,-0.0321283,-0.0530093,-0.04498,0.0,0.0749693,0.159034,0.224907,0.249809,0.224907,0.159034,0.0749693,0.0,-0.04498,-0.0530093,-0.0321283,0.0,0.0249882,0.0318046,0.0204448,0.0,-0.0172976,-0.0227152,-0.0149911,0.0,0.013227,0.0176663</parameter>
+  <parameter name="coeffSetRealValueImag">0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.0530093, -0.04498, 0.0, 0.0749693, 0.159034, 0.224907, 0.249809, 0.224907, 0.159034, 0.0749693, 0.0, -0.04498, -0.0530093, -0.0321283, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0</parameter>
+  <parameter name="coeffType" value="frac" />
+  <parameter name="decimFactor" value="1" />
+  <parameter name="delayRAMBlockThreshold" value="20" />
+  <parameter name="deviceFamily" value="Cyclone V" />
+  <parameter name="dualMemDistRAMThreshold" value="1280" />
+  <parameter name="filterType" value="single" />
+  <parameter name="hardMultiplierThreshold" value="-1" />
+  <parameter name="inputBitWidth" value="20" />
+  <parameter name="inputChannelNum" value="1" />
+  <parameter name="inputFracBitWidth" value="19" />
+  <parameter name="inputRate" value="1" />
+  <parameter name="inputType" value="frac" />
+  <parameter name="interpFactor" value="1" />
+  <parameter name="karatsuba" value="false" />
+  <parameter name="mRAMThreshold" value="1000000" />
+  <parameter name="num_modes" value="2" />
+  <parameter name="outLSBRound" value="round" />
+  <parameter name="outLsbBitRem" value="20" />
+  <parameter name="outMSBRound" value="trunc" />
+  <parameter name="outMsbBitRem" value="6" />
+  <parameter name="outType" value="frac" />
+  <parameter name="readWriteMode" value="read_write" />
+  <parameter name="reconfigurable" value="false" />
+  <parameter name="reconfigurable_list" value="0" />
+  <parameter name="speedGrade" value="slow" />
+  <parameter name="symmetryMode" value="nsym" />
  </module>
  <module
    name="fpga_only_master"
@@ -990,6 +1331,15 @@
    kind="avalon"
    version="24.1"
    start="mm_bridge_0.m0"
+   end="fir_compiler_ii_0.avalon_mm_slave">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x3100" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="24.1"
+   start="mm_bridge_0.m0"
    end="ILC.avalon_slave">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x00030000" />
@@ -1004,13 +1354,41 @@
   <parameter name="baseAddress" value="0x1000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
+ <connection kind="avalon" version="24.1" start="mm_bridge_0.m0" end="fifo_1.in">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x3320" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="24.1"
+   start="mm_bridge_0.m0"
+   end="fifo_1.in_csr">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x3300" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="24.1"
+   start="mm_bridge_0.m0"
+   end="fifo_0.in_csr">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x3200" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection kind="avalon" version="24.1" start="mm_bridge_0.m0" end="fifo_0.out">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x3220" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
  <connection
    kind="avalon"
    version="24.1"
    start="mm_bridge_0.m0"
    end="button_pio.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x5000" />
+  <parameter name="baseAddress" value="0x3020" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -1019,7 +1397,7 @@
    start="mm_bridge_0.m0"
    end="dipsw_pio.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x4000" />
+  <parameter name="baseAddress" value="0x3010" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection kind="avalon" version="24.1" start="mm_bridge_0.m0" end="led_pio.s1">
@@ -1029,7 +1407,7 @@
  </connection>
  <connection kind="avalon" version="24.1" start="mm_bridge_0.m0" end="hex_pio.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x6000" />
+  <parameter name="baseAddress" value="0x3030" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -1083,7 +1461,7 @@
    start="fpga_only_master.master"
    end="dipsw_pio.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x4000" />
+  <parameter name="baseAddress" value="0x3010" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -1092,7 +1470,7 @@
    start="fpga_only_master.master"
    end="button_pio.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x5000" />
+  <parameter name="baseAddress" value="0x3020" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -1101,9 +1479,19 @@
    start="fpga_only_master.master"
    end="hex_pio.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x6000" />
+  <parameter name="baseAddress" value="0x3030" />
   <parameter name="defaultConnection" value="false" />
  </connection>
+ <connection
+   kind="avalon_streaming"
+   version="24.1"
+   start="fir_compiler_ii_0.avalon_streaming_source"
+   end="fifo_0.in" />
+ <connection
+   kind="avalon_streaming"
+   version="24.1"
+   start="fifo_1.out"
+   end="fir_compiler_ii_0.avalon_streaming_sink" />
  <connection
    kind="clock"
    version="24.1"
@@ -1127,6 +1515,18 @@
    end="f2sdram_only_master.clk" />
  <connection kind="clock" version="24.1" start="clk_0.clk" end="mm_bridge_0.clk" />
  <connection kind="clock" version="24.1" start="clk_0.clk" end="hex_pio.clk" />
+ <connection
+   kind="clock"
+   version="24.1"
+   start="clk_0.clk"
+   end="fir_compiler_ii_0.clk" />
+ <connection kind="clock" version="24.1" start="clk_0.clk" end="fifo_0.clk_in" />
+ <connection kind="clock" version="24.1" start="clk_0.clk" end="fifo_1.clk_in" />
+ <connection
+   kind="clock"
+   version="24.1"
+   start="clk_0.clk"
+   end="fir_compiler_ii_0.coeff_clock" />
  <connection
    kind="clock"
    version="24.1"
@@ -1168,6 +1568,20 @@
    end="dipsw_pio.irq">
   <parameter name="irqNumber" value="0" />
  </connection>
+ <connection
+   kind="interrupt"
+   version="24.1"
+   start="hps_0.f2h_irq1"
+   end="fifo_1.in_irq">
+  <parameter name="irqNumber" value="0" />
+ </connection>
+ <connection
+   kind="interrupt"
+   version="24.1"
+   start="hps_0.f2h_irq1"
+   end="fifo_0.in_irq">
+  <parameter name="irqNumber" value="1" />
+ </connection>
  <connection kind="interrupt" version="24.1" start="ILC.irq" end="jtag_uart.irq">
   <parameter name="irqNumber" value="0" />
  </connection>
@@ -1192,6 +1606,11 @@
    version="24.1"
    start="clk_0.clk_reset"
    end="f2sdram_only_master.clk_reset" />
+ <connection
+   kind="reset"
+   version="24.1"
+   start="clk_0.clk_reset"
+   end="fir_compiler_ii_0.coeff_reset" />
  <connection
    kind="reset"
    version="24.1"
@@ -1227,7 +1646,34 @@
    version="24.1"
    start="clk_0.clk_reset"
    end="hex_pio.reset" />
+ <connection
+   kind="reset"
+   version="24.1"
+   start="clk_0.clk_reset"
+   end="fifo_0.reset_in" />
+ <connection
+   kind="reset"
+   version="24.1"
+   start="clk_0.clk_reset"
+   end="fifo_1.reset_in" />
  <connection kind="reset" version="24.1" start="clk_0.clk_reset" end="ILC.reset_n" />
+ <connection
+   kind="reset"
+   version="24.1"
+   start="clk_0.clk_reset"
+   end="fir_compiler_ii_0.rst" />
  <interconnectRequirement for="$system" name="qsys_mm.clockCrossingAdapter" value="HANDSHAKE" />
  <interconnectRequirement for="$system" name="qsys_mm.maxAdditionalLatency" value="1" />
+ <interconnectRequirement
+   for="fpga_only_master.master"
+   name="qsys_mm.security"
+   value="NON_SECURE" />
+ <interconnectRequirement
+   for="hps_0.f2h_sdram0_data"
+   name="qsys_mm.security"
+   value="NON_SECURE" />
+ <interconnectRequirement
+   for="hps_only_master.master"
+   name="qsys_mm.security"
+   value="NON_SECURE" />
 </system>

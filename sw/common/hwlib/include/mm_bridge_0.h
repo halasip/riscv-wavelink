@@ -30,7 +30,7 @@
 #define SYSID_QSYS_SPAN 8
 #define SYSID_QSYS_END 0x1007
 #define SYSID_QSYS_ID 2899645186
-#define SYSID_QSYS_TIMESTAMP 1754648539
+#define SYSID_QSYS_TIMESTAMP 1755091048
 
 /*
  * Macros for device 'led_pio', class 'altera_avalon_pio'
@@ -63,9 +63,9 @@
  */
 #define DIPSW_PIO_COMPONENT_TYPE altera_avalon_pio
 #define DIPSW_PIO_COMPONENT_NAME dipsw_pio
-#define DIPSW_PIO_BASE 0x4000
+#define DIPSW_PIO_BASE 0x3010
 #define DIPSW_PIO_SPAN 16
-#define DIPSW_PIO_END 0x400f
+#define DIPSW_PIO_END 0x301f
 #define DIPSW_PIO_BIT_CLEARING_EDGE_REGISTER 1
 #define DIPSW_PIO_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define DIPSW_PIO_CAPTURE 1
@@ -87,9 +87,9 @@
  */
 #define BUTTON_PIO_COMPONENT_TYPE altera_avalon_pio
 #define BUTTON_PIO_COMPONENT_NAME button_pio
-#define BUTTON_PIO_BASE 0x5000
+#define BUTTON_PIO_BASE 0x3020
 #define BUTTON_PIO_SPAN 16
-#define BUTTON_PIO_END 0x500f
+#define BUTTON_PIO_END 0x302f
 #define BUTTON_PIO_BIT_CLEARING_EDGE_REGISTER 1
 #define BUTTON_PIO_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define BUTTON_PIO_CAPTURE 1
@@ -111,9 +111,9 @@
  */
 #define HEX_PIO_COMPONENT_TYPE altera_avalon_pio
 #define HEX_PIO_COMPONENT_NAME hex_pio
-#define HEX_PIO_BASE 0x6000
+#define HEX_PIO_BASE 0x3030
 #define HEX_PIO_SPAN 16
-#define HEX_PIO_END 0x600f
+#define HEX_PIO_END 0x303f
 #define HEX_PIO_BIT_CLEARING_EDGE_REGISTER 0
 #define HEX_PIO_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define HEX_PIO_CAPTURE 0
@@ -127,6 +127,133 @@
 #define HEX_PIO_HAS_TRI 0
 #define HEX_PIO_IRQ_TYPE NONE
 #define HEX_PIO_RESET_VALUE 0
+
+/*
+ * Macros for device 'fir_compiler_ii_0', class 'altera_fir_compiler_ii'
+ * The macros are prefixed with 'FIR_COMPILER_II_0_'.
+ * The prefix is the slave descriptor.
+ */
+#define FIR_COMPILER_II_0_COMPONENT_TYPE altera_fir_compiler_ii
+#define FIR_COMPILER_II_0_COMPONENT_NAME fir_compiler_ii_0
+#define FIR_COMPILER_II_0_BASE 0x3100
+#define FIR_COMPILER_II_0_SPAN 256
+#define FIR_COMPILER_II_0_END 0x31ff
+
+/*
+ * Macros for device 'fifo_0_in_csr', class 'altera_avalon_fifo'
+ * The macros are prefixed with 'FIFO_0_IN_CSR_'.
+ * The prefix is the slave descriptor.
+ */
+#define FIFO_0_IN_CSR_COMPONENT_TYPE altera_avalon_fifo
+#define FIFO_0_IN_CSR_COMPONENT_NAME fifo_0
+#define FIFO_0_IN_CSR_BASE 0x3200
+#define FIFO_0_IN_CSR_SPAN 32
+#define FIFO_0_IN_CSR_END 0x321f
+#define FIFO_0_IN_CSR_AVALONMM_AVALONMM_DATA_WIDTH 32
+#define FIFO_0_IN_CSR_AVALONMM_AVALONST_DATA_WIDTH 32
+#define FIFO_0_IN_CSR_BITS_PER_SYMBOL 20
+#define FIFO_0_IN_CSR_CHANNEL_WIDTH 0
+#define FIFO_0_IN_CSR_ERROR_WIDTH 0
+#define FIFO_0_IN_CSR_FIFO_DEPTH 128
+#define FIFO_0_IN_CSR_SINGLE_CLOCK_MODE 1
+#define FIFO_0_IN_CSR_SYMBOLS_PER_BEAT 1
+#define FIFO_0_IN_CSR_USE_AVALONMM_READ_SLAVE 1
+#define FIFO_0_IN_CSR_USE_AVALONMM_WRITE_SLAVE 0
+#define FIFO_0_IN_CSR_USE_AVALONST_SINK 1
+#define FIFO_0_IN_CSR_USE_AVALONST_SOURCE 0
+#define FIFO_0_IN_CSR_USE_BACKPRESSURE 1
+#define FIFO_0_IN_CSR_USE_IRQ 1
+#define FIFO_0_IN_CSR_USE_PACKET 0
+#define FIFO_0_IN_CSR_USE_READ_CONTROL 0
+#define FIFO_0_IN_CSR_USE_REGISTER 0
+#define FIFO_0_IN_CSR_USE_WRITE_CONTROL 1
+
+/*
+ * Macros for device 'fifo_0_out', class 'altera_avalon_fifo'
+ * The macros are prefixed with 'FIFO_0_OUT_'.
+ * The prefix is the slave descriptor.
+ */
+#define FIFO_0_OUT_COMPONENT_TYPE altera_avalon_fifo
+#define FIFO_0_OUT_COMPONENT_NAME fifo_0
+#define FIFO_0_OUT_BASE 0x3220
+#define FIFO_0_OUT_SPAN 8
+#define FIFO_0_OUT_END 0x3227
+#define FIFO_0_OUT_AVALONMM_AVALONMM_DATA_WIDTH 32
+#define FIFO_0_OUT_AVALONMM_AVALONST_DATA_WIDTH 32
+#define FIFO_0_OUT_BITS_PER_SYMBOL 20
+#define FIFO_0_OUT_CHANNEL_WIDTH 0
+#define FIFO_0_OUT_ERROR_WIDTH 0
+#define FIFO_0_OUT_FIFO_DEPTH 128
+#define FIFO_0_OUT_SINGLE_CLOCK_MODE 1
+#define FIFO_0_OUT_SYMBOLS_PER_BEAT 1
+#define FIFO_0_OUT_USE_AVALONMM_READ_SLAVE 1
+#define FIFO_0_OUT_USE_AVALONMM_WRITE_SLAVE 0
+#define FIFO_0_OUT_USE_AVALONST_SINK 1
+#define FIFO_0_OUT_USE_AVALONST_SOURCE 0
+#define FIFO_0_OUT_USE_BACKPRESSURE 1
+#define FIFO_0_OUT_USE_IRQ 1
+#define FIFO_0_OUT_USE_PACKET 0
+#define FIFO_0_OUT_USE_READ_CONTROL 0
+#define FIFO_0_OUT_USE_REGISTER 0
+#define FIFO_0_OUT_USE_WRITE_CONTROL 1
+
+/*
+ * Macros for device 'fifo_1_in_csr', class 'altera_avalon_fifo'
+ * The macros are prefixed with 'FIFO_1_IN_CSR_'.
+ * The prefix is the slave descriptor.
+ */
+#define FIFO_1_IN_CSR_COMPONENT_TYPE altera_avalon_fifo
+#define FIFO_1_IN_CSR_COMPONENT_NAME fifo_1
+#define FIFO_1_IN_CSR_BASE 0x3300
+#define FIFO_1_IN_CSR_SPAN 32
+#define FIFO_1_IN_CSR_END 0x331f
+#define FIFO_1_IN_CSR_AVALONMM_AVALONMM_DATA_WIDTH 32
+#define FIFO_1_IN_CSR_AVALONMM_AVALONST_DATA_WIDTH 32
+#define FIFO_1_IN_CSR_BITS_PER_SYMBOL 20
+#define FIFO_1_IN_CSR_CHANNEL_WIDTH 0
+#define FIFO_1_IN_CSR_ERROR_WIDTH 0
+#define FIFO_1_IN_CSR_FIFO_DEPTH 128
+#define FIFO_1_IN_CSR_SINGLE_CLOCK_MODE 1
+#define FIFO_1_IN_CSR_SYMBOLS_PER_BEAT 1
+#define FIFO_1_IN_CSR_USE_AVALONMM_READ_SLAVE 0
+#define FIFO_1_IN_CSR_USE_AVALONMM_WRITE_SLAVE 1
+#define FIFO_1_IN_CSR_USE_AVALONST_SINK 0
+#define FIFO_1_IN_CSR_USE_AVALONST_SOURCE 1
+#define FIFO_1_IN_CSR_USE_BACKPRESSURE 1
+#define FIFO_1_IN_CSR_USE_IRQ 1
+#define FIFO_1_IN_CSR_USE_PACKET 0
+#define FIFO_1_IN_CSR_USE_READ_CONTROL 0
+#define FIFO_1_IN_CSR_USE_REGISTER 0
+#define FIFO_1_IN_CSR_USE_WRITE_CONTROL 1
+
+/*
+ * Macros for device 'fifo_1_in', class 'altera_avalon_fifo'
+ * The macros are prefixed with 'FIFO_1_IN_'.
+ * The prefix is the slave descriptor.
+ */
+#define FIFO_1_IN_COMPONENT_TYPE altera_avalon_fifo
+#define FIFO_1_IN_COMPONENT_NAME fifo_1
+#define FIFO_1_IN_BASE 0x3320
+#define FIFO_1_IN_SPAN 8
+#define FIFO_1_IN_END 0x3327
+#define FIFO_1_IN_AVALONMM_AVALONMM_DATA_WIDTH 32
+#define FIFO_1_IN_AVALONMM_AVALONST_DATA_WIDTH 32
+#define FIFO_1_IN_BITS_PER_SYMBOL 20
+#define FIFO_1_IN_CHANNEL_WIDTH 0
+#define FIFO_1_IN_ERROR_WIDTH 0
+#define FIFO_1_IN_FIFO_DEPTH 128
+#define FIFO_1_IN_SINGLE_CLOCK_MODE 1
+#define FIFO_1_IN_SYMBOLS_PER_BEAT 1
+#define FIFO_1_IN_USE_AVALONMM_READ_SLAVE 0
+#define FIFO_1_IN_USE_AVALONMM_WRITE_SLAVE 1
+#define FIFO_1_IN_USE_AVALONST_SINK 0
+#define FIFO_1_IN_USE_AVALONST_SOURCE 1
+#define FIFO_1_IN_USE_BACKPRESSURE 1
+#define FIFO_1_IN_USE_IRQ 1
+#define FIFO_1_IN_USE_PACKET 0
+#define FIFO_1_IN_USE_READ_CONTROL 0
+#define FIFO_1_IN_USE_REGISTER 0
+#define FIFO_1_IN_USE_WRITE_CONTROL 1
 
 /*
  * Macros for device 'jtag_uart', class 'altera_avalon_jtag_uart'
