@@ -315,15 +315,6 @@
    type="conduit"
    dir="end" />
  <interface
-   name="f2sdram_only_master_master_reset"
-   internal="f2sdram_only_master.master_reset"
-   type="reset"
-   dir="start">
-  <port
-     name="f2sdram_only_master_master_reset_reset"
-     internal="master_reset_reset" />
- </interface>
- <interface
    name="hex_pio"
    internal="hex_pio.external_connection"
    type="conduit"
@@ -355,48 +346,6 @@
    type="reset"
    dir="end">
   <port name="hps_0_f2h_warm_rst_req_n" internal="f2h_warm_rst_req_n" />
- </interface>
- <interface
-   name="hps_0_h2f_axi_master"
-   internal="hps_0.h2f_axi_master"
-   type="axi"
-   dir="start">
-  <port name="hps_0_h2f_AWID" internal="h2f_AWID" />
-  <port name="hps_0_h2f_AWADDR" internal="h2f_AWADDR" />
-  <port name="hps_0_h2f_AWLEN" internal="h2f_AWLEN" />
-  <port name="hps_0_h2f_AWSIZE" internal="h2f_AWSIZE" />
-  <port name="hps_0_h2f_AWBURST" internal="h2f_AWBURST" />
-  <port name="hps_0_h2f_AWLOCK" internal="h2f_AWLOCK" />
-  <port name="hps_0_h2f_AWCACHE" internal="h2f_AWCACHE" />
-  <port name="hps_0_h2f_AWPROT" internal="h2f_AWPROT" />
-  <port name="hps_0_h2f_AWVALID" internal="h2f_AWVALID" />
-  <port name="hps_0_h2f_AWREADY" internal="h2f_AWREADY" />
-  <port name="hps_0_h2f_WID" internal="h2f_WID" />
-  <port name="hps_0_h2f_WDATA" internal="h2f_WDATA" />
-  <port name="hps_0_h2f_WSTRB" internal="h2f_WSTRB" />
-  <port name="hps_0_h2f_WLAST" internal="h2f_WLAST" />
-  <port name="hps_0_h2f_WVALID" internal="h2f_WVALID" />
-  <port name="hps_0_h2f_WREADY" internal="h2f_WREADY" />
-  <port name="hps_0_h2f_BID" internal="h2f_BID" />
-  <port name="hps_0_h2f_BRESP" internal="h2f_BRESP" />
-  <port name="hps_0_h2f_BVALID" internal="h2f_BVALID" />
-  <port name="hps_0_h2f_BREADY" internal="h2f_BREADY" />
-  <port name="hps_0_h2f_ARID" internal="h2f_ARID" />
-  <port name="hps_0_h2f_ARADDR" internal="h2f_ARADDR" />
-  <port name="hps_0_h2f_ARLEN" internal="h2f_ARLEN" />
-  <port name="hps_0_h2f_ARSIZE" internal="h2f_ARSIZE" />
-  <port name="hps_0_h2f_ARBURST" internal="h2f_ARBURST" />
-  <port name="hps_0_h2f_ARLOCK" internal="h2f_ARLOCK" />
-  <port name="hps_0_h2f_ARCACHE" internal="h2f_ARCACHE" />
-  <port name="hps_0_h2f_ARPROT" internal="h2f_ARPROT" />
-  <port name="hps_0_h2f_ARVALID" internal="h2f_ARVALID" />
-  <port name="hps_0_h2f_ARREADY" internal="h2f_ARREADY" />
-  <port name="hps_0_h2f_RID" internal="h2f_RID" />
-  <port name="hps_0_h2f_RDATA" internal="h2f_RDATA" />
-  <port name="hps_0_h2f_RRESP" internal="h2f_RRESP" />
-  <port name="hps_0_h2f_RLAST" internal="h2f_RLAST" />
-  <port name="hps_0_h2f_RVALID" internal="h2f_RVALID" />
-  <port name="hps_0_h2f_RREADY" internal="h2f_RREADY" />
  </interface>
  <interface
    name="hps_0_h2f_reset"
@@ -696,12 +645,7 @@
   <parameter name="simDrivenValue" value="0" />
   <parameter name="width" value="24" />
  </module>
- <module
-   name="hps_0"
-   kind="altera_hps"
-   version="24.1"
-   enabled="1"
-   autoexport="1">
+ <module name="hps_0" kind="altera_hps" version="24.1" enabled="1">
   <parameter name="ABSTRACT_REAL_COMPARE_TEST" value="false" />
   <parameter name="ABS_RAM_MEM_INIT_FILENAME" value="meminit" />
   <parameter name="ACV_PHY_CLK_ADD_FR_PHASE" value="0.0" />

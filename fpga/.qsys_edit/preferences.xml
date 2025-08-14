@@ -5,15 +5,15 @@
   <columns>
    <connections preferredWidth="303" />
    <irq preferredWidth="63" />
-   <security visible="1" />
+   <security visible="0" />
    <defaultSlave visible="0" preferredWidth="182" />
-   <autoexport visible="1" />
+   <autoexport visible="0" />
    <export preferredWidth="248" />
    <tags visible="0" />
    <opcodeName visible="0" />
   </columns>
  </systemtable>
- <library expandedCategories="Library,Project" />
+ <library expandedCategories="Project,Library" />
  <window width="3778" height="2089" x="62" y="71" />
  <hdlexample language="VERILOG" />
 </preferences>

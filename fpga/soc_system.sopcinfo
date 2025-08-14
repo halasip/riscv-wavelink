@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EnsembleReport name="soc_system" kind="soc_system" version="1.0" fabric="QSYS">
  <!-- Format version 24.1 1077 (Future versions may contain additional information.) -->
- <!-- 2025.08.13.18:21:21 -->
+ <!-- 2025.08.14.14:23:45 -->
  <!-- A collection of modules and connections -->
  <parameter name="AUTO_GENERATION_ID">
   <type>java.lang.Integer</type>
-  <value>1755102062</value>
+  <value>1755174208</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>false</visible>
@@ -48,7 +48,7 @@
   <valid>true</valid>
   <sysinfo_type>DEVICE_SPEEDGRADE</sysinfo_type>
  </parameter>
- <parameter name="AUTO_CLK_CLOCK_RATE">
+ <parameter name="AUTO_CGM_CLOCK_RATE">
   <type>java.lang.Long</type>
   <value>-1</value>
   <derived>false</derived>
@@ -56,9 +56,9 @@
   <visible>false</visible>
   <valid>true</valid>
   <sysinfo_type>CLOCK_RATE</sysinfo_type>
-  <sysinfo_arg>clk</sysinfo_arg>
+  <sysinfo_arg>cgm</sysinfo_arg>
  </parameter>
- <parameter name="AUTO_CLK_CLOCK_DOMAIN">
+ <parameter name="AUTO_CGM_CLOCK_DOMAIN">
   <type>java.lang.Integer</type>
   <value>-1</value>
   <derived>false</derived>
@@ -66,9 +66,9 @@
   <visible>false</visible>
   <valid>true</valid>
   <sysinfo_type>CLOCK_DOMAIN</sysinfo_type>
-  <sysinfo_arg>clk</sysinfo_arg>
+  <sysinfo_arg>cgm</sysinfo_arg>
  </parameter>
- <parameter name="AUTO_CLK_RESET_DOMAIN">
+ <parameter name="AUTO_CGM_RESET_DOMAIN">
   <type>java.lang.Integer</type>
   <value>-1</value>
   <derived>false</derived>
@@ -76,27 +76,7 @@
   <visible>false</visible>
   <valid>true</valid>
   <sysinfo_type>RESET_DOMAIN</sysinfo_type>
-  <sysinfo_arg>clk</sysinfo_arg>
- </parameter>
- <parameter name="AUTO_HPS_0_H2F_AXI_MASTER_ADDRESS_MAP">
-  <type>com.altera.entityinterfaces.moduleext.AddressMap</type>
-  <value></value>
-  <derived>false</derived>
-  <enabled>true</enabled>
-  <visible>false</visible>
-  <valid>true</valid>
-  <sysinfo_type>ADDRESS_MAP</sysinfo_type>
-  <sysinfo_arg>hps_0_h2f_axi_master</sysinfo_arg>
- </parameter>
- <parameter name="AUTO_HPS_0_H2F_AXI_MASTER_ADDRESS_WIDTH">
-  <type>com.altera.entityinterfaces.moduleext.AddressWidthType</type>
-  <value>AddressWidth = -1</value>
-  <derived>false</derived>
-  <enabled>true</enabled>
-  <visible>false</visible>
-  <valid>true</valid>
-  <sysinfo_type>ADDRESS_WIDTH</sysinfo_type>
-  <sysinfo_arg>hps_0_h2f_axi_master</sysinfo_arg>
+  <sysinfo_arg>cgm</sysinfo_arg>
  </parameter>
  <parameter name="deviceFamily">
   <type>java.lang.String</type>
@@ -1617,7 +1597,7 @@ parameters are a RESULT of the module parameters. -->
    </port>
   </interface>
  </module>
- <module name="clk_0" kind="clock_source" version="24.1" path="clk_0">
+ <module name="crgm" kind="clock_source" version="24.1" path="crgm">
   <!-- Describes a single module. Module parameters are
 the requested settings for a module instance. -->
   <parameter name="clockFrequency">
@@ -87348,7 +87328,7 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.TIMESTAMP</name>
-   <value>1755102062</value>
+   <value>1755174208</value>
   </assignment>
   <assignment>
    <name>embeddedsw.dts.compatible</name>
@@ -87368,7 +87348,7 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.dts.params.timestamp</name>
-   <value>1755102062</value>
+   <value>1755174208</value>
   </assignment>
   <assignment>
    <name>embeddedsw.dts.vendor</name>
@@ -87384,7 +87364,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="timestamp">
    <type>int</type>
-   <value>1755102062</value>
+   <value>1755174208</value>
    <derived>true</derived>
    <enabled>false</enabled>
    <visible>false</visible>
@@ -99093,10 +99073,10 @@ parameters are a RESULT of the module parameters. -->
   <endConnectionPoint>avalon_streaming_sink</endConnectionPoint>
  </connection>
  <connection
-   name="clk_0.clk/hps_only_master.clk"
+   name="crgm.clk/hps_only_master.clk"
    kind="clock"
    version="24.1"
-   start="clk_0.clk"
+   start="crgm.clk"
    end="hps_only_master.clk">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -99114,16 +99094,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>clk_0</startModule>
+  <startModule>crgm</startModule>
   <startConnectionPoint>clk</startConnectionPoint>
   <endModule>hps_only_master</endModule>
   <endConnectionPoint>clk</endConnectionPoint>
  </connection>
  <connection
-   name="clk_0.clk/sysid_qsys.clk"
+   name="crgm.clk/sysid_qsys.clk"
    kind="clock"
    version="24.1"
-   start="clk_0.clk"
+   start="crgm.clk"
    end="sysid_qsys.clk">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -99141,16 +99121,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>clk_0</startModule>
+  <startModule>crgm</startModule>
   <startConnectionPoint>clk</startConnectionPoint>
   <endModule>sysid_qsys</endModule>
   <endConnectionPoint>clk</endConnectionPoint>
  </connection>
  <connection
-   name="clk_0.clk/led_pio.clk"
+   name="crgm.clk/led_pio.clk"
    kind="clock"
    version="24.1"
-   start="clk_0.clk"
+   start="crgm.clk"
    end="led_pio.clk">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -99168,16 +99148,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>clk_0</startModule>
+  <startModule>crgm</startModule>
   <startConnectionPoint>clk</startConnectionPoint>
   <endModule>led_pio</endModule>
   <endConnectionPoint>clk</endConnectionPoint>
  </connection>
  <connection
-   name="clk_0.clk/fpga_only_master.clk"
+   name="crgm.clk/fpga_only_master.clk"
    kind="clock"
    version="24.1"
-   start="clk_0.clk"
+   start="crgm.clk"
    end="fpga_only_master.clk">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -99195,16 +99175,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>clk_0</startModule>
+  <startModule>crgm</startModule>
   <startConnectionPoint>clk</startConnectionPoint>
   <endModule>fpga_only_master</endModule>
   <endConnectionPoint>clk</endConnectionPoint>
  </connection>
  <connection
-   name="clk_0.clk/dipsw_pio.clk"
+   name="crgm.clk/dipsw_pio.clk"
    kind="clock"
    version="24.1"
-   start="clk_0.clk"
+   start="crgm.clk"
    end="dipsw_pio.clk">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -99222,16 +99202,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>clk_0</startModule>
+  <startModule>crgm</startModule>
   <startConnectionPoint>clk</startConnectionPoint>
   <endModule>dipsw_pio</endModule>
   <endConnectionPoint>clk</endConnectionPoint>
  </connection>
  <connection
-   name="clk_0.clk/button_pio.clk"
+   name="crgm.clk/button_pio.clk"
    kind="clock"
    version="24.1"
-   start="clk_0.clk"
+   start="crgm.clk"
    end="button_pio.clk">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -99249,16 +99229,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>clk_0</startModule>
+  <startModule>crgm</startModule>
   <startConnectionPoint>clk</startConnectionPoint>
   <endModule>button_pio</endModule>
   <endConnectionPoint>clk</endConnectionPoint>
  </connection>
  <connection
-   name="clk_0.clk/jtag_uart.clk"
+   name="crgm.clk/jtag_uart.clk"
    kind="clock"
    version="24.1"
-   start="clk_0.clk"
+   start="crgm.clk"
    end="jtag_uart.clk">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -99276,16 +99256,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>clk_0</startModule>
+  <startModule>crgm</startModule>
   <startConnectionPoint>clk</startConnectionPoint>
   <endModule>jtag_uart</endModule>
   <endConnectionPoint>clk</endConnectionPoint>
  </connection>
  <connection
-   name="clk_0.clk/ILC.clk"
+   name="crgm.clk/ILC.clk"
    kind="clock"
    version="24.1"
-   start="clk_0.clk"
+   start="crgm.clk"
    end="ILC.clk">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -99303,16 +99283,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>clk_0</startModule>
+  <startModule>crgm</startModule>
   <startConnectionPoint>clk</startConnectionPoint>
   <endModule>ILC</endModule>
   <endConnectionPoint>clk</endConnectionPoint>
  </connection>
  <connection
-   name="clk_0.clk/f2sdram_only_master.clk"
+   name="crgm.clk/f2sdram_only_master.clk"
    kind="clock"
    version="24.1"
-   start="clk_0.clk"
+   start="crgm.clk"
    end="f2sdram_only_master.clk">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -99330,16 +99310,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>clk_0</startModule>
+  <startModule>crgm</startModule>
   <startConnectionPoint>clk</startConnectionPoint>
   <endModule>f2sdram_only_master</endModule>
   <endConnectionPoint>clk</endConnectionPoint>
  </connection>
  <connection
-   name="clk_0.clk/mm_bridge_0.clk"
+   name="crgm.clk/mm_bridge_0.clk"
    kind="clock"
    version="24.1"
-   start="clk_0.clk"
+   start="crgm.clk"
    end="mm_bridge_0.clk">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -99357,16 +99337,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>clk_0</startModule>
+  <startModule>crgm</startModule>
   <startConnectionPoint>clk</startConnectionPoint>
   <endModule>mm_bridge_0</endModule>
   <endConnectionPoint>clk</endConnectionPoint>
  </connection>
  <connection
-   name="clk_0.clk/hex_pio.clk"
+   name="crgm.clk/hex_pio.clk"
    kind="clock"
    version="24.1"
-   start="clk_0.clk"
+   start="crgm.clk"
    end="hex_pio.clk">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -99384,16 +99364,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>clk_0</startModule>
+  <startModule>crgm</startModule>
   <startConnectionPoint>clk</startConnectionPoint>
   <endModule>hex_pio</endModule>
   <endConnectionPoint>clk</endConnectionPoint>
  </connection>
  <connection
-   name="clk_0.clk/fir_compiler_ii_0.clk"
+   name="crgm.clk/fir_compiler_ii_0.clk"
    kind="clock"
    version="24.1"
-   start="clk_0.clk"
+   start="crgm.clk"
    end="fir_compiler_ii_0.clk">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -99411,16 +99391,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>clk_0</startModule>
+  <startModule>crgm</startModule>
   <startConnectionPoint>clk</startConnectionPoint>
   <endModule>fir_compiler_ii_0</endModule>
   <endConnectionPoint>clk</endConnectionPoint>
  </connection>
  <connection
-   name="clk_0.clk/fifo_0.clk_in"
+   name="crgm.clk/fifo_0.clk_in"
    kind="clock"
    version="24.1"
-   start="clk_0.clk"
+   start="crgm.clk"
    end="fifo_0.clk_in">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -99438,16 +99418,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>clk_0</startModule>
+  <startModule>crgm</startModule>
   <startConnectionPoint>clk</startConnectionPoint>
   <endModule>fifo_0</endModule>
   <endConnectionPoint>clk_in</endConnectionPoint>
  </connection>
  <connection
-   name="clk_0.clk/fifo_1.clk_in"
+   name="crgm.clk/fifo_1.clk_in"
    kind="clock"
    version="24.1"
-   start="clk_0.clk"
+   start="crgm.clk"
    end="fifo_1.clk_in">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -99465,16 +99445,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>clk_0</startModule>
+  <startModule>crgm</startModule>
   <startConnectionPoint>clk</startConnectionPoint>
   <endModule>fifo_1</endModule>
   <endConnectionPoint>clk_in</endConnectionPoint>
  </connection>
  <connection
-   name="clk_0.clk/fir_compiler_ii_0.coeff_clock"
+   name="crgm.clk/fir_compiler_ii_0.coeff_clock"
    kind="clock"
    version="24.1"
-   start="clk_0.clk"
+   start="crgm.clk"
    end="fir_compiler_ii_0.coeff_clock">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -99492,16 +99472,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>clk_0</startModule>
+  <startModule>crgm</startModule>
   <startConnectionPoint>clk</startConnectionPoint>
   <endModule>fir_compiler_ii_0</endModule>
   <endConnectionPoint>coeff_clock</endConnectionPoint>
  </connection>
  <connection
-   name="clk_0.clk/hps_0_bridges.f2h_axi_clock"
+   name="crgm.clk/hps_0_bridges.f2h_axi_clock"
    kind="clock"
    version="24.1"
-   start="clk_0.clk"
+   start="crgm.clk"
    end="hps_0_bridges.f2h_axi_clock">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -99519,16 +99499,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>clk_0</startModule>
+  <startModule>crgm</startModule>
   <startConnectionPoint>clk</startConnectionPoint>
   <endModule>hps_0_bridges</endModule>
   <endConnectionPoint>f2h_axi_clock</endConnectionPoint>
  </connection>
  <connection
-   name="clk_0.clk/hps_0_bridges.f2h_sdram0_clock"
+   name="crgm.clk/hps_0_bridges.f2h_sdram0_clock"
    kind="clock"
    version="24.1"
-   start="clk_0.clk"
+   start="crgm.clk"
    end="hps_0_bridges.f2h_sdram0_clock">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -99546,16 +99526,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>clk_0</startModule>
+  <startModule>crgm</startModule>
   <startConnectionPoint>clk</startConnectionPoint>
   <endModule>hps_0_bridges</endModule>
   <endConnectionPoint>f2h_sdram0_clock</endConnectionPoint>
  </connection>
  <connection
-   name="clk_0.clk/hps_0_bridges.h2f_axi_clock"
+   name="crgm.clk/hps_0_bridges.h2f_axi_clock"
    kind="clock"
    version="24.1"
-   start="clk_0.clk"
+   start="crgm.clk"
    end="hps_0_bridges.h2f_axi_clock">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -99573,16 +99553,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>clk_0</startModule>
+  <startModule>crgm</startModule>
   <startConnectionPoint>clk</startConnectionPoint>
   <endModule>hps_0_bridges</endModule>
   <endConnectionPoint>h2f_axi_clock</endConnectionPoint>
  </connection>
  <connection
-   name="clk_0.clk/hps_0_bridges.h2f_lw_axi_clock"
+   name="crgm.clk/hps_0_bridges.h2f_lw_axi_clock"
    kind="clock"
    version="24.1"
-   start="clk_0.clk"
+   start="crgm.clk"
    end="hps_0_bridges.h2f_lw_axi_clock">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -99600,7 +99580,7 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>clk_0</startModule>
+  <startModule>crgm</startModule>
   <startConnectionPoint>clk</startConnectionPoint>
   <endModule>hps_0_bridges</endModule>
   <endConnectionPoint>h2f_lw_axi_clock</endConnectionPoint>
@@ -99886,10 +99866,10 @@ parameters are a RESULT of the module parameters. -->
   <endConnectionPoint>irq</endConnectionPoint>
  </connection>
  <connection
-   name="clk_0.clk_reset/hps_only_master.clk_reset"
+   name="crgm.clk_reset/hps_only_master.clk_reset"
    kind="reset"
    version="24.1"
-   start="clk_0.clk_reset"
+   start="crgm.clk_reset"
    end="hps_only_master.clk_reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -99907,16 +99887,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>clk_0</startModule>
+  <startModule>crgm</startModule>
   <startConnectionPoint>clk_reset</startConnectionPoint>
   <endModule>hps_only_master</endModule>
   <endConnectionPoint>clk_reset</endConnectionPoint>
  </connection>
  <connection
-   name="clk_0.clk_reset/fpga_only_master.clk_reset"
+   name="crgm.clk_reset/fpga_only_master.clk_reset"
    kind="reset"
    version="24.1"
-   start="clk_0.clk_reset"
+   start="crgm.clk_reset"
    end="fpga_only_master.clk_reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -99934,16 +99914,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>clk_0</startModule>
+  <startModule>crgm</startModule>
   <startConnectionPoint>clk_reset</startConnectionPoint>
   <endModule>fpga_only_master</endModule>
   <endConnectionPoint>clk_reset</endConnectionPoint>
  </connection>
  <connection
-   name="clk_0.clk_reset/f2sdram_only_master.clk_reset"
+   name="crgm.clk_reset/f2sdram_only_master.clk_reset"
    kind="reset"
    version="24.1"
-   start="clk_0.clk_reset"
+   start="crgm.clk_reset"
    end="f2sdram_only_master.clk_reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -99961,16 +99941,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>clk_0</startModule>
+  <startModule>crgm</startModule>
   <startConnectionPoint>clk_reset</startConnectionPoint>
   <endModule>f2sdram_only_master</endModule>
   <endConnectionPoint>clk_reset</endConnectionPoint>
  </connection>
  <connection
-   name="clk_0.clk_reset/fir_compiler_ii_0.coeff_reset"
+   name="crgm.clk_reset/fir_compiler_ii_0.coeff_reset"
    kind="reset"
    version="24.1"
-   start="clk_0.clk_reset"
+   start="crgm.clk_reset"
    end="fir_compiler_ii_0.coeff_reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -99988,16 +99968,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>clk_0</startModule>
+  <startModule>crgm</startModule>
   <startConnectionPoint>clk_reset</startConnectionPoint>
   <endModule>fir_compiler_ii_0</endModule>
   <endConnectionPoint>coeff_reset</endConnectionPoint>
  </connection>
  <connection
-   name="clk_0.clk_reset/sysid_qsys.reset"
+   name="crgm.clk_reset/sysid_qsys.reset"
    kind="reset"
    version="24.1"
-   start="clk_0.clk_reset"
+   start="crgm.clk_reset"
    end="sysid_qsys.reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -100015,16 +99995,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>clk_0</startModule>
+  <startModule>crgm</startModule>
   <startConnectionPoint>clk_reset</startConnectionPoint>
   <endModule>sysid_qsys</endModule>
   <endConnectionPoint>reset</endConnectionPoint>
  </connection>
  <connection
-   name="clk_0.clk_reset/led_pio.reset"
+   name="crgm.clk_reset/led_pio.reset"
    kind="reset"
    version="24.1"
-   start="clk_0.clk_reset"
+   start="crgm.clk_reset"
    end="led_pio.reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -100042,16 +100022,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>clk_0</startModule>
+  <startModule>crgm</startModule>
   <startConnectionPoint>clk_reset</startConnectionPoint>
   <endModule>led_pio</endModule>
   <endConnectionPoint>reset</endConnectionPoint>
  </connection>
  <connection
-   name="clk_0.clk_reset/dipsw_pio.reset"
+   name="crgm.clk_reset/dipsw_pio.reset"
    kind="reset"
    version="24.1"
-   start="clk_0.clk_reset"
+   start="crgm.clk_reset"
    end="dipsw_pio.reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -100069,16 +100049,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>clk_0</startModule>
+  <startModule>crgm</startModule>
   <startConnectionPoint>clk_reset</startConnectionPoint>
   <endModule>dipsw_pio</endModule>
   <endConnectionPoint>reset</endConnectionPoint>
  </connection>
  <connection
-   name="clk_0.clk_reset/button_pio.reset"
+   name="crgm.clk_reset/button_pio.reset"
    kind="reset"
    version="24.1"
-   start="clk_0.clk_reset"
+   start="crgm.clk_reset"
    end="button_pio.reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -100096,16 +100076,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>clk_0</startModule>
+  <startModule>crgm</startModule>
   <startConnectionPoint>clk_reset</startConnectionPoint>
   <endModule>button_pio</endModule>
   <endConnectionPoint>reset</endConnectionPoint>
  </connection>
  <connection
-   name="clk_0.clk_reset/jtag_uart.reset"
+   name="crgm.clk_reset/jtag_uart.reset"
    kind="reset"
    version="24.1"
-   start="clk_0.clk_reset"
+   start="crgm.clk_reset"
    end="jtag_uart.reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -100123,16 +100103,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>clk_0</startModule>
+  <startModule>crgm</startModule>
   <startConnectionPoint>clk_reset</startConnectionPoint>
   <endModule>jtag_uart</endModule>
   <endConnectionPoint>reset</endConnectionPoint>
  </connection>
  <connection
-   name="clk_0.clk_reset/mm_bridge_0.reset"
+   name="crgm.clk_reset/mm_bridge_0.reset"
    kind="reset"
    version="24.1"
-   start="clk_0.clk_reset"
+   start="crgm.clk_reset"
    end="mm_bridge_0.reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -100150,16 +100130,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>clk_0</startModule>
+  <startModule>crgm</startModule>
   <startConnectionPoint>clk_reset</startConnectionPoint>
   <endModule>mm_bridge_0</endModule>
   <endConnectionPoint>reset</endConnectionPoint>
  </connection>
  <connection
-   name="clk_0.clk_reset/hex_pio.reset"
+   name="crgm.clk_reset/hex_pio.reset"
    kind="reset"
    version="24.1"
-   start="clk_0.clk_reset"
+   start="crgm.clk_reset"
    end="hex_pio.reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -100177,16 +100157,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>clk_0</startModule>
+  <startModule>crgm</startModule>
   <startConnectionPoint>clk_reset</startConnectionPoint>
   <endModule>hex_pio</endModule>
   <endConnectionPoint>reset</endConnectionPoint>
  </connection>
  <connection
-   name="clk_0.clk_reset/fifo_0.reset_in"
+   name="crgm.clk_reset/fifo_0.reset_in"
    kind="reset"
    version="24.1"
-   start="clk_0.clk_reset"
+   start="crgm.clk_reset"
    end="fifo_0.reset_in">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -100204,16 +100184,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>clk_0</startModule>
+  <startModule>crgm</startModule>
   <startConnectionPoint>clk_reset</startConnectionPoint>
   <endModule>fifo_0</endModule>
   <endConnectionPoint>reset_in</endConnectionPoint>
  </connection>
  <connection
-   name="clk_0.clk_reset/fifo_1.reset_in"
+   name="crgm.clk_reset/fifo_1.reset_in"
    kind="reset"
    version="24.1"
-   start="clk_0.clk_reset"
+   start="crgm.clk_reset"
    end="fifo_1.reset_in">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -100231,16 +100211,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>clk_0</startModule>
+  <startModule>crgm</startModule>
   <startConnectionPoint>clk_reset</startConnectionPoint>
   <endModule>fifo_1</endModule>
   <endConnectionPoint>reset_in</endConnectionPoint>
  </connection>
  <connection
-   name="clk_0.clk_reset/ILC.reset_n"
+   name="crgm.clk_reset/ILC.reset_n"
    kind="reset"
    version="24.1"
-   start="clk_0.clk_reset"
+   start="crgm.clk_reset"
    end="ILC.reset_n">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -100258,16 +100238,16 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>clk_0</startModule>
+  <startModule>crgm</startModule>
   <startConnectionPoint>clk_reset</startConnectionPoint>
   <endModule>ILC</endModule>
   <endConnectionPoint>reset_n</endConnectionPoint>
  </connection>
  <connection
-   name="clk_0.clk_reset/fir_compiler_ii_0.rst"
+   name="crgm.clk_reset/fir_compiler_ii_0.rst"
    kind="reset"
    version="24.1"
-   start="clk_0.clk_reset"
+   start="crgm.clk_reset"
    end="fir_compiler_ii_0.rst">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
@@ -100285,7 +100265,7 @@ parameters are a RESULT of the module parameters. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <startModule>clk_0</startModule>
+  <startModule>crgm</startModule>
   <startConnectionPoint>clk_reset</startConnectionPoint>
   <endModule>fir_compiler_ii_0</endModule>
   <endConnectionPoint>rst</endConnectionPoint>

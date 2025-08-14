@@ -290,7 +290,7 @@ rbf: $(QUARTUS_RBF)
 
 .PHONY: create_rbf
 create_rbf:
-	quartus_cpf -c $(QUARTUS_CPF_ARGS) $(QUARTUS_SOF) $(QUARTUS_RBF)
+		quartus_cpf -c $(QUARTUS_CPF_ARGS) $(QUARTUS_SOF) $(QUARTUS_RBF)
 
 
 ifeq ($(HAVE_QUARTUS),1)
